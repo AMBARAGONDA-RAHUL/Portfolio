@@ -10,22 +10,22 @@
       /* Global Styles */
       body {
         font-family: 'Roboto', sans-serif;
-        background-color: #f9f9f9; /* Light background */
-        color: #333; /* Dark text color */
+        background-color: #000000; /* Black background */
+        color: #ffffff; /* White text color */
         line-height: 1.6;
         margin: 0;
         padding: 0;
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Mono', monospace;
-        color: #007bff; /* Blue accent color */
+        color: #ffdd57; /* Yellow accent color */
       }
       a {
-        color: #007bff;
+        color: #ffdd57;
         text-decoration: none;
       }
       a:hover {
-        color: #0056b3;
+        color: #ffffff;
       }
       .container {
         width: 100%;
@@ -34,53 +34,10 @@
         padding: 0 15px;
       }
 
-      /* Navigation */
-      .navbar {
-        background-color: #ffffff; /* White background */
-        padding: 1rem 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-      }
-      .navbar-brand {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #007bff !important;
-      }
-      .navbar-nav .nav-link {
-        color: #333 !important;
-        font-weight: 500;
-        margin: 0 1rem;
-      }
-      .navbar-nav .nav-link:hover {
-        color: #007bff !important;
-      }
-
-      /* Quote Section */
-      .quote-section {
-        background-color: #007bff; /* Blue background */
-        color: #fff;
-        padding: 2rem 0;
-        text-align: center;
-      }
-      .quote-section .quote {
-        font-size: 1.5rem;
-        font-style: italic;
-        margin-bottom: 1rem;
-      }
-      .quote-section .icons {
-        font-size: 1.5rem;
-      }
-      .quote-section .icons a {
-        color: #fff;
-        margin: 0 0.5rem;
-      }
-      .quote-section .icons a:hover {
-        color: #ffdd57; /* Yellow hover color */
-      }
-
       /* Hero Section */
       .hero {
-        background-color: #ffffff;
-        padding: 100px 0;
+        background-color: #000000;
+        padding: 150px 0;
         text-align: center;
       }
       .hero h1 {
@@ -90,23 +47,23 @@
       }
       .hero h2 {
         font-size: 2rem;
-        color: #333;
+        color: #ffffff;
         margin-bottom: 2rem;
       }
       .hero p {
         font-size: 1.2rem;
-        color: #666;
+        color: #b3b3b3; /* Lighter text color */
       }
       .btn-primary {
-        background-color: #007bff;
-        color: #fff;
+        background-color: #ffdd57;
+        color: #000000;
         padding: 0.75rem 2rem;
         border-radius: 5px;
         font-weight: 600;
         transition: all 0.3s ease;
       }
       .btn-primary:hover {
-        background-color: #0056b3;
+        background-color: #ffcc00;
       }
 
       /* About Section */
@@ -120,14 +77,14 @@
         text-align: center;
       }
       .about .bio-content {
-        background-color: #ffffff;
+        background-color: #1a1a1a; /* Dark gray background */
         padding: 2rem;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
       .about .bio-content p {
         font-size: 1.1rem;
-        color: #333;
+        color: #ffffff;
         margin-bottom: 1.5rem;
       }
       .about .bio-content ul {
@@ -137,11 +94,11 @@
       .about .bio-content ul li {
         margin-bottom: 1rem;
         font-size: 1.1rem;
-        color: #333;
+        color: #ffffff;
       }
       .about .bio-content ul li::before {
         content: "▹";
-        color: #007bff;
+        color: #ffdd57;
         margin-right: 0.5rem;
       }
 
@@ -165,8 +122,8 @@
         box-sizing: border-box;
       }
       .features .feature-box {
-        background-color: #007bff;
-        color: #fff;
+        background-color: #1a1a1a; /* Dark gray background */
+        color: #ffffff;
         padding: 2rem;
         border-radius: 10px;
         text-align: center;
@@ -178,8 +135,8 @@
 
       /* Footer */
       .footer {
-        background-color: #007bff;
-        color: #fff;
+        background-color: #1a1a1a;
+        color: #ffffff;
         padding: 2rem 0;
         text-align: center;
       }
@@ -189,49 +146,18 @@
     </style>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Rahul Ambaragonda</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Quote Section -->
-    <section class="quote-section">
-      <div class="container">
-        <div class="quote">
-          "The only way to do great work is to love what you do." – Steve Jobs
-        </div>
-        <div class="icons">
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-    </section>
-
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
         <h1>Rahul Ambaragonda</h1>
         <h2>Cloud DevOps Engineer</h2>
         <p>Specializing in CI/CD automation, cloud security, and infrastructure as code (IaC) across Azure and AWS.</p>
-        <a href="about.html" class="btn btn-primary">Learn More</a>
+        <a href="#about" class="btn btn-primary">Learn More</a>
       </div>
     </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section id="about" class="about">
       <div class="container">
         <h2 class="section-heading">About Me</h2>
         <div class="bio-content">
