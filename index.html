@@ -17,6 +17,35 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
       /* Add your custom styles here */
+      .bio-section h2 {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .bio-section p {
+        font-size: 1.1em;
+        line-height: 1.6;
+        color: #333;
+      }
+      .bio-section .skills {
+        list-style: none;
+        padding: 0;
+      }
+      .bio-section .skills li {
+        margin-bottom: 10px;
+      }
+      .cta-button {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 15px 25px;
+        font-size: 1.2em;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+      .cta-button:hover {
+        background-color: #0056b3;
+      }
     </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -44,7 +73,7 @@
 
     <!-- About Section (Bio) -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-      <div class="container">
+      <div class="container bio-section">
         <div class="row">
           <div class="col-md-6 col-lg-5 d-flex">
             <div class="img-about img d-flex align-items-stretch">
@@ -52,15 +81,7 @@
                 <div class="row">
                   <div class="col-sm-6 col-md-5">
                     <div class="about-img">
-                      <img src="images/bg_main.jpg" class="img-fluid rounded b-shadow-a" alt="">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-7">
-                    <div class="about-info">
-                      <p><span class="title-s">Name: </span> <span>Rahul Ambaragonda</span></p>
-                      <p><span class="title-s">Job Role: </span> <span>Cloud DevOps Engineer</span></p>
-                      <p><span class="title-s">Experience: </span> <span>2 Years 8 Months</span></p>
-                      <p><span class="title-s">Address: </span> <span>Hyderabad, India</span></p>
+                      <img src="images/bg_main.jpg" class="img-fluid rounded b-shadow-a" alt="Rahul Ambaragonda">
                     </div>
                   </div>
                 </div>
@@ -68,7 +89,7 @@
                   <p class="title-s">Skills</p>
                   <span>Azure Cloud</span> <span class="pull-right">85%</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -77,51 +98,26 @@
           <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
             <div class="row justify-content-start pb-3">
               <div class="col-md-12 heading-section ftco-animate">
-                <h1 class="big">About</h1>
-                <h2 class="mb-4">About Me</h2>
-                <p>With over 3 years of experience as a Cloud DevOps Engineer...</p>
-                <ul class="about-info mt-4 px-md-0 px-2">
-                  <li class="d-flex"><span>Profile:</span> <span>Cloud DevOps Engineer &amp; Security Engineering</span></li>
-                  <!-- Add other details here -->
+                <h2>About Me</h2>
+                <p>I am a Cloud DevOps Engineer with 3+ years of experience specializing in CI/CD automation, cloud security, and infrastructure as code (IaC) across Azure and AWS. My expertise lies in designing secure and scalable DevOps pipelines, implementing GitOps workflows with ArgoCD, and optimizing Kubernetes deployments for high availability and security.</p>
+                <ul class="skills">
+                  <li><strong>CI/CD Automation:</strong> Building secure and scalable pipelines using Azure DevOps & GitHub Actions.</li>
+                  <li><strong>Infrastructure as Code:</strong> Automating cloud environments with Terraform.</li>
+                  <li><strong>Kubernetes & GitOps:</strong> Managing workloads efficiently with AKS, ArgoCD & Helm.</li>
+                  <li><strong>Observability & Monitoring:</strong> Ensuring reliability with Prometheus, Grafana & Azure Monitor.</li>
+                  <li><strong>Cloud Security & Compliance:</strong> Driving Shift Left security strategies in DevOps workflows, focusing on RBAC, IAM, and Zero Trust architectures.</li>
+                  <li><strong>DevSecOps Integration:</strong> Embedding security controls into every stage of the CI/CD pipeline, including code scanning, secret management, and policy enforcement.</li>
                 </ul>
-              </div>
-            </div>
-            <div class="counter-wrap ftco-animate d-flex mt-md-3">
-              <div class="text">
-                <p class="mb-4">
-                  <span class="number" data-number="10">0</span> <span>+</span>
-                  <span>&nbsp; Projects completed</span>
-                </p>
-                <p><a href="https://www.linkedin.com/in/rahul-ambaragonda-79322127a/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Home Section -->
-    <section id="home-section" class="hero">
-      <div class="home-slider owl-carousel">
-        <div class="slider-item">
-          <div class="overlay"></div>
-          <div class="container">
-            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
-                <div class="overlay"></div>
-              </div>
-              <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                <div class="text">
-                  <span class="subheading">Hello!</span>
-                  <h1 class="mb-4 mt-3">I'm <span>Rahul Ambaragonda</span></h1>
-                  <span id="typing-animation"></span>
-                  <br><br>
-                  <h2>A Cloud DevOps Engineer</h2>
-                  <p>
-                    <a href="https://cloudsimplified.hashnode.dev/" class="btn btn-primary py-3 px-4">Blogs</a>
-                    <a href="https://github.com/RAHUL-AMBARAGONDA" class="btn btn-white btn-outline-white py-3 px-4">My Works</a>
-                  </p>
-                </div>
+                <h3>Why Work With Me?</h3>
+                <p>I bring a DevOps-first mindset that focuses on automation, security, and performance optimization. Whether it's building cloud-native applications, securing infrastructure, or implementing best-in-class observability, I ensure organizations achieve high velocity and reliability in their software delivery.</p>
+                <p>With certifications in Azure Security (AZ-500), Microsoft Certified: Azure Administrator Associate (AZ-104), and Microsoft Cybersecurity Analyst, I am committed to staying ahead in the evolving cloud and security landscape.</p>
+                <p>Passionate About:</p>
+                <ul>
+                  <li>🌐 Researching emerging threats and implementing cutting-edge solutions.</li>
+                  <li>🎓 Sharing my knowledge through blogs, presentations, and mentorship to help others excel in cloud security.</li>
+                </ul>
+                <p>Let’s connect and explore how I can help your organization achieve secure, scalable, and innovative cloud solutions!</p>
+                <a href="https://www.linkedin.com/in/rahul-ambaragonda-79322127a/" class="cta-button">Connect with me on LinkedIn</a>
               </div>
             </div>
           </div>
@@ -146,7 +142,7 @@
                 <span class="icon-map-signs"></span>
               </div>
               <h3 class="mb-4">Address</h3>
-              <p>Atlanta, USA</p>
+              <p>Hyderabad, India</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -164,5 +160,11 @@
                 <span class="icon-paper-plane"></span>
               </div>
               <h3 class="mb-4">Email Address</h3>
-              <p><a href="mailto:contact@rahulambaragondaa@gmail.com">
+              <p><a href="mailto:contact@rahulambaragondaa@gmail.com">contact@rahulambaragondaa@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
