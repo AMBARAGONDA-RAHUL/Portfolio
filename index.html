@@ -98,7 +98,7 @@
         background-color: #ffcc00;
       }
 
-      /* About Section */
+      /* About Me Section */
       .about {
         padding: 100px 0;
       }
@@ -109,10 +109,15 @@
         text-align: center;
       }
       .about .bio-content {
-        background-color: #1a1a1a;
+        background-color: #1a1a1a; /* Dark gray background */
         padding: 2rem;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 20px rgba(255, 221, 87, 0.3); /* Yellow glow effect */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .about .bio-content:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 30px rgba(255, 221, 87, 0.5); /* Enhanced glow on hover */
       }
       .about .bio-content p {
         font-size: 1.1rem;
@@ -130,7 +135,7 @@
       }
       .about .bio-content ul li::before {
         content: "▹";
-        color: #ffdd57;
+        color: #ffdd57; /* Yellow accent color */
         margin-right: 0.5rem;
       }
 
@@ -151,7 +156,7 @@
         justify-content: center;
       }
       .features .feature-box {
-        background-color: #1a1a1a;
+        background-color: #1a1a1a; /* Dark gray background */
         color: #ffffff;
         padding: 2rem;
         border-radius: 10px;
@@ -193,6 +198,9 @@
         .quote-section .quote {
           font-size: 1.5rem; /* Smaller font size for mobile */
         }
+        .about .bio-content {
+          padding: 1.5rem; /* Adjust padding for mobile */
+        }
         .features .feature-box {
           flex: 0 0 calc(50% - 1.5rem); /* Two boxes per row for mobile */
         }
@@ -210,6 +218,9 @@
         }
         .quote-section .quote {
           font-size: 1.25rem; /* Smaller font size for very small screens */
+        }
+        .about .bio-content {
+          padding: 1rem; /* Adjust padding for very small screens */
         }
         .features .feature-box {
           flex: 0 0 100%; /* Full width for very small screens */
@@ -233,7 +244,7 @@
         <h1>Rahul Ambaragonda</h1>
         <h2>Cloud DevOps Engineer</h2>
         <p>Specializing in CI/CD automation, cloud security, and infrastructure as code (IaC) across Azure and AWS.</p>
-        <a href="myprotifolio.html" class="btn btn-primary">My Portifolio</a>
+        <a href="#about" class="btn btn-primary">Learn More</a>
       </div>
     </section>
 
@@ -259,10 +270,10 @@
     <!-- Features Section -->
     <section class="features">
       <div class="container">
-        <h2 class="section-heading"> Why This Page ?? </h2>
+        <h2 class="section-heading">Explore</h2>
         <div class="row">
           <div class="feature-box">
-            <a href="roadmap.html">
+            <a href="roadmaps.html">
               <h3>Roadmaps</h3>
               <p>Step-by-step guides to mastering DevOps and cloud technologies.</p>
             </a>
@@ -280,12 +291,11 @@
             </a>
           </div>
           <div class="feature-box">
-  <a href="articles.html">
-    <h3>Articles</h3>
-    <p>Curated content to help you stay updated and informed.</p>
-  </a>
-</div>
-
+            <a href="articles.html">
+              <h3>Articles</h3>
+              <p>Curated content to help you stay updated and informed.</p>
+            </a>
+          </div>
           <div class="feature-box">
             <a href="guides.html">
               <h3>Guides</h3>
