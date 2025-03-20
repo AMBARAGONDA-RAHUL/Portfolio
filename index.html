@@ -1,170 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Rahul Ambaragonda's Portfolio</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-      /* Add your custom styles here */
-      .bio-section h2 {
-        font-size: 2em;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-      .bio-section p {
-        font-size: 1.1em;
-        line-height: 1.6;
-        color: #333;
-      }
-      .bio-section .skills {
-        list-style: none;
-        padding: 0;
-      }
-      .bio-section .skills li {
-        margin-bottom: 10px;
-      }
-      .cta-button {
-        background-color: #007BFF;
-        color: #fff;
-        padding: 15px 25px;
-        font-size: 1.2em;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-      }
-      .cta-button:hover {
-        background-color: #0056b3;
-      }
-    </style>
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Rahul Ambaragonda</a>
-        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="oi oi-menu"></span> Menu
-        </button>
-        <div class="collapse navbar-collapse" id="ftco-nav">
-          <ul class="navbar-nav nav ml-auto">
-            <li class="nav-item"><a href="index.html" class="nav-link"><span>My Portfolio</span></a></li>
-            <li class="nav-item"><a href="resume.pdf" class="nav-link" download><span>Resume</span></a></li>
-            <li class="nav-item"><a href="projects.html" class="nav-link"><span>Projects</span></a></li>
-            <li class="nav-item"><a href="devops-resources.html" class="nav-link"><span>DevOps Resources</span></a></li>
-            <li class="nav-item"><a href="roadmap.html" class="nav-link"><span>Roadmap</span></a></li>
-            <li class="nav-item"><a href="articles.html" class="nav-link"><span>Articles</span></a></li>
-            <li class="nav-item"><a href="azure-labs.html" class="nav-link"><span>Azure Labs</span></a></li>
-            <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- About Section (Bio) -->
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-      <div class="container bio-section">
-        <div class="row">
-          <div class="col-md-6 col-lg-5 d-flex">
-            <div class="img-about img d-flex align-items-stretch">
-              <div class="overlay">
-                <div class="row">
-                  <div class="col-sm-6 col-md-5">
-                    <div class="about-img">
-                      <img src="images/bg_main.jpg" class="img-fluid rounded b-shadow-a" alt="Rahul Ambaragonda">
-                    </div>
-                  </div>
+<!-- About Section (Bio) -->
+<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-5 d-flex">
+        <div class="img-about img d-flex align-items-stretch">
+          <div class="overlay">
+            <div class="row">
+              <div class="col-sm-6 col-md-5">
+                <div class="about-img">
+                  <img src="images/bg_main.jpg" class="img-fluid rounded b-shadow-a" alt="">
                 </div>
-                <div class="skill-mf">
-                  <p class="title-s">Skills</p>
-                  <span>Azure Cloud</span> <span class="pull-right">85%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+              </div>
+              <div class="col-sm-6 col-md-7">
+                <div class="about-info">
+                  <p><span class="title-s">Name: </span> <span>Rahul Ambaragonda</span></p>
+                  <p><span class="title-s">Job Role: </span> <span>Cloud DevOps Engineer</span></p>
+                  <p><span class="title-s">Experience: </span> <span>3+ Years</span></p>
+                  <p><span class="title-s">Address: </span> <span>Hyderabad, India</span></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-            <div class="row justify-content-start pb-3">
-              <div class="col-md-12 heading-section ftco-animate">
-                <h2>About Me</h2>
-                <p>I am a Cloud DevOps Engineer with 3+ years of experience specializing in CI/CD automation, cloud security, and infrastructure as code (IaC) across Azure and AWS. My expertise lies in designing secure and scalable DevOps pipelines, implementing GitOps workflows with ArgoCD, and optimizing Kubernetes deployments for high availability and security.</p>
-                <ul class="skills">
-                  <li><strong>CI/CD Automation:</strong> Building secure and scalable pipelines using Azure DevOps & GitHub Actions.</li>
-                  <li><strong>Infrastructure as Code:</strong> Automating cloud environments with Terraform.</li>
-                  <li><strong>Kubernetes & GitOps:</strong> Managing workloads efficiently with AKS, ArgoCD & Helm.</li>
-                  <li><strong>Observability & Monitoring:</strong> Ensuring reliability with Prometheus, Grafana & Azure Monitor.</li>
-                  <li><strong>Cloud Security & Compliance:</strong> Driving Shift Left security strategies in DevOps workflows, focusing on RBAC, IAM, and Zero Trust architectures.</li>
-                  <li><strong>DevSecOps Integration:</strong> Embedding security controls into every stage of the CI/CD pipeline, including code scanning, secret management, and policy enforcement.</li>
-                </ul>
-                <h3>Why Work With Me?</h3>
-                <p>I bring a DevOps-first mindset that focuses on automation, security, and performance optimization. Whether it's building cloud-native applications, securing infrastructure, or implementing best-in-class observability, I ensure organizations achieve high velocity and reliability in their software delivery.</p>
-                <p>With certifications in Azure Security (AZ-500), Microsoft Certified: Azure Administrator Associate (AZ-104), and Microsoft Cybersecurity Analyst, I am committed to staying ahead in the evolving cloud and security landscape.</p>
-                <p>Passionate About:</p>
-                <ul>
-                  <li>🌐 Researching emerging threats and implementing cutting-edge solutions.</li>
-                  <li>🎓 Sharing my knowledge through blogs, presentations, and mentorship to help others excel in cloud security.</li>
-                </ul>
-                <p>Let’s connect and explore how I can help your organization achieve secure, scalable, and innovative cloud solutions!</p>
-                <a href="https://www.linkedin.com/in/rahul-ambaragonda-79322127a/" class="cta-button">Connect with me on LinkedIn</a>
+            <div class="skill-mf">
+              <p class="title-s">Skills</p>
+              <span>Azure Cloud</span> <span class="pull-right">85%</span>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+      <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+        <div class="row justify-content-start pb-3">
+          <div class="col-md-12 heading-section ftco-animate">
+            <h1 class="big">About</h1>
+            <h2 class="mb-4">About Me</h2>
+            <p>With over 3 years of experience as a Cloud DevOps Engineer specializing in cloud security, CI/CD automation, and Infrastructure as Code (IaC), I am passionate about helping students and professionals in the field of DevOps and Cloud Computing. My goal is to make the learning process easier and more accessible for anyone looking to excel in these technologies.</p>
+            
+            <ul class="about-info mt-4 px-md-0 px-2">
+              <li class="d-flex"><span>Profile:</span> <span>Cloud DevOps Engineer & Security Engineering</span></li>
+              <li class="d-flex"><span>Certifications:</span> <span>AZ-500, AZ-104, Microsoft Cybersecurity Analyst</span></li>
+              <li class="d-flex"><span>Blog:</span> <span><a href="https://cloudsimplified.hashnode.dev/">Cloud Simplified</a></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="counter-wrap ftco-animate d-flex mt-md-3">
+          <div class="text">
+            <p class="mb-4">
+              <span class="number" data-number="10">0</span> <span>+</span>
+              <span>&nbsp; Projects completed</span>
+            </p>
+            <p><a href="https://www.linkedin.com/in/rahul-ambaragonda-79322127a/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4">Contact Me</h2>
-            <p>Below are the details to reach out to me!</p>
-          </div>
-        </div>
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <div class="align-self-stretch box p-4 text-center">
-              <div class="icon d-flex align-items-center justify-content-center">
-                <span class="icon-map-signs"></span>
-              </div>
-              <h3 class="mb-4">Address</h3>
-              <p>Hyderabad, India</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <div class="align-self-stretch box p-4 text-center">
-              <div class="icon d-flex align-items-center justify-content-center">
-                <span class="icon-phone2"></span>
-              </div>
-              <h3 class="mb-4">Contact Number</h3>
-              <p><a href="tel://0101010101">+1 404 844 3951</a></p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <div class="align-self-stretch box p-4 text-center">
-              <div class="icon d-flex align-items-center justify-content-center">
-                <span class="icon-paper-plane"></span>
-              </div>
-              <h3 class="mb-4">Email Address</h3>
-              <p><a href="mailto:contact@rahulambaragondaa@gmail.com">contact@rahulambaragondaa@gmail.com</a></p>
-            </div>
-          </div>
+<!-- Add "Helping Students" Section -->
+<section class="ftco-section ftco-helping-students">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-7 heading-section ftco-animate">
+        <h2 class="mb-4">My Goal: Helping Students and Professionals</h2>
+        <p>I created this platform, similar to <a href="https://www.azuresimplified.com" target="_blank">AzureSimplified</a>, to help students and professionals who are looking to upskill in DevOps, Cloud, and Security. Here, you will find a variety of resources such as:</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="resource-box">
+          <h3>Resume Building</h3>
+          <p>Learn how to craft an effective resume that showcases your skills and experience in the DevOps and Cloud domains.</p>
         </div>
       </div>
-    </section>
+      <div class="col-md-4">
+        <div class="resource-box">
+          <h3>Resources</h3>
+          <p>Access curated resources, tutorials, and guides to help you grow your skills in Azure, AWS, and DevSecOps.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="resource-box">
+          <h3>Roadmaps</h3>
+          <p>Get step-by-step roadmaps to guide your career development, from beginner to advanced levels in Cloud and DevOps technologies.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mt-4">
+        <p>If you are looking for help with certifications, learning resources, or career advice, feel free to reach out to me. I am here to help you achieve your goals!</p>
+        <a href="contact-section" class="btn btn-primary py-3 px-4">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
