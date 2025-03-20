@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <style>
-      /* New Tech-Themed Styles */
+      /* Global Styles */
       body {
         font-family: 'Roboto', sans-serif;
         background-color: #1a1a1a; /* Dark background */
         color: #e0e0e0; /* Light text color */
         line-height: 1.6;
+        margin: 0;
+        padding: 0;
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Mono', monospace;
@@ -26,6 +27,14 @@
       a:hover {
         color: #ffffff;
       }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Navigation */
       .navbar {
         background-color: #262626; /* Darker background for navbar */
         padding: 1rem 0;
@@ -43,6 +52,8 @@
       .navbar-nav .nav-link:hover {
         color: #00ffcc !important;
       }
+
+      /* Hero Section */
       .hero {
         background-color: #1a1a1a;
         padding: 150px 0;
@@ -73,65 +84,39 @@
       .btn-primary:hover {
         background-color: #00ccaa;
       }
-      .section {
+
+      /* Features Section */
+      .features {
         padding: 100px 0;
       }
-      .section-heading {
+      .features .section-heading {
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 2rem;
         text-align: center;
       }
-      .bio-content {
-        background-color: #262626;
-        padding: 2rem;
-        border-radius: 10px;
-        margin-top: 2rem;
+      .features .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem; /* Space between boxes */
       }
-      .bio-content p {
-        font-size: 1.1rem;
-        color: #e0e0e0;
-        margin-bottom: 1.5rem;
+      .features .col-md-6 {
+        flex: 0 0 calc(50% - 1.5rem); /* Two boxes per row */
+        box-sizing: border-box;
       }
-      .bio-content ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      .bio-content ul li {
-        margin-bottom: 1rem;
-        font-size: 1.1rem;
-        color: #e0e0e0;
-      }
-      .bio-content ul li::before {
-        content: "▹";
-        color: #00ffcc;
-        margin-right: 0.5rem;
-      }
-      .skill-bar {
-        background-color: #333333;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-      }
-      .skill-bar .progress {
-        background-color: #00ffcc;
-        height: 10px;
-        border-radius: 5px;
-      }
-      .contact-info {
-        background-color: #262626;
+      .features .feature-box {
+        background-color: #007bff; /* Blue boxes */
+        color: #fff;
         padding: 2rem;
         border-radius: 10px;
         text-align: center;
-        margin-bottom: 2rem;
+        transition: transform 0.3s ease;
       }
-      .contact-info h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+      .features .feature-box:hover {
+        transform: translateY(-10px); /* Hover effect */
       }
-      .contact-info p {
-        font-size: 1.1rem;
-        color: #e0e0e0;
-      }
+
+      /* Footer */
       .footer {
         background-color: #262626;
         padding: 2rem 0;
@@ -150,109 +135,83 @@
         <a class="navbar-brand" href="index.html">Rahul Ambaragonda</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        <!-- Hero Section -->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link">My Portfolio</a></li>
+            <li class="nav-item"><a href="articles.html" class="nav-link">Articles</a></li>
+            <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+            <li class="nav-item"><a href="roadmap.html" class="nav-link">DevOps Roadmap</a></li>
+            <li class="nav-item"><a href="labs.html" class="nav-link">Labs</a></li>
+            <li class="nav-item"><a href="guides.html" class="nav-link">Guides</a></li>
+            <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
       <div class="container">
         <h1>Rahul Ambaragonda</h1>
         <h2>Cloud DevOps Engineer</h2>
         <p>Specializing in CI/CD automation, cloud security, and infrastructure as code (IaC) across Azure and AWS.</p>
-        <a href="myprotifolio.html" class="btn btn-primary">Learn More</a>
+        <a href="about.html" class="btn btn-primary">Learn More</a>
       </div>
     </section>
+
     <!-- Features Section -->
-<section id="features" class="section">
-  <div class="container">
-    <h2 class="section-heading">Why This Page?</h2>
-    <div class="row">
-      <!-- First Row -->
-      <div class="col-md-6">
-        <div class="feature-box" style="background-color: #007bff; color: #fff; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem;">
-          <h3>Roadmaps</h3>
-          <p>Step-by-step guides to mastering DevOps and cloud technologies.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-box" style="background-color: #007bff; color: #fff; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem;">
-          <h3>Blogs</h3>
-          <p>In-depth articles on the latest trends and best practices.</p>
-        </div>
-      </div>
-      <!-- Second Row -->
-      <div class="col-md-6">
-        <div class="feature-box" style="background-color: #007bff; color: #fff; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem;">
-          <h3>Labs</h3>
-          <p>Hands-on labs to practice and sharpen your skills.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-box" style="background-color: #007bff; color: #fff; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem;">
-          <h3>Articles</h3>
-          <p>Curated content to help you stay updated and informed.</p>
-        </div>
-      </div>
-      <!-- Third Row -->
-      <div class="col-md-6">
-        <div class="feature-box" style="background-color: #007bff; color: #fff; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem;">
-          <h3>Guides</h3>
-          <p>Detailed tutorials and how-tos for complex topics.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-box" style="background-color: #007bff; color: #fff; padding: 2rem; border-radius: 10px; text-align: center; margin-bottom: 1.5rem;">
-          <h3>Resources</h3>
-          <p>Tools, templates, and references to accelerate your learning.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
+    <section class="features">
       <div class="container">
-        <h2 class="section-heading">About Me</h2>
-        <div class="bio-content">
-          <p>I am a <strong>Cloud DevOps Engineer</strong> with <strong>3+ years of experience</strong> specializing in CI/CD automation, cloud security, and infrastructure as code (IaC) across Azure and AWS. My expertise lies in designing secure and scalable DevOps pipelines, implementing GitOps workflows with ArgoCD, and optimizing Kubernetes deployments for high availability and security.</p>
-          <p><strong>🔹 What I Do Best:</strong></p>
-          <ul>
-            <li><strong>CI/CD Automation:</strong> Building secure and scalable pipelines using Azure DevOps & GitHub Actions.</li>
-            <li><strong>Infrastructure as Code:</strong> Automating cloud environments with Terraform.</li>
-            <li><strong>Kubernetes & GitOps:</strong> Managing workloads efficiently with AKS, ArgoCD & Helm.</li>
-            <li><strong>Observability & Monitoring:</strong> Ensuring reliability with Prometheus, Grafana & Azure Monitor.</li>
-            <li><strong>Cloud Security & Compliance:</strong> Driving Shift Left security strategies in DevOps workflows, focusing on RBAC, IAM, and Zero Trust architectures.</li>
-            <li><strong>DevSecOps Integration:</strong> Embedding security controls into every stage of the CI/CD pipeline, including code scanning, secret management, and policy enforcement.</li>
-          </ul>
-          <p><strong>🔹 Why Work With Me?</strong></p>
-          <p>I bring a <strong>DevOps-first mindset</strong> that focuses on automation, security, and performance optimization. Whether it's building cloud-native applications, securing infrastructure, or implementing best-in-class observability, I ensure organizations achieve high velocity and reliability in their software delivery.</p>
-          <p>With certifications in <strong>Azure Security (AZ-500)</strong>, <strong>Microsoft Certified: Azure Administrator Associate (AZ-104)</strong>, and <strong>Microsoft Cybersecurity Analyst</strong>, I am committed to staying ahead in the evolving cloud and security landscape.</p>
-          <p><strong>Passionate About:</strong></p>
-          <ul>
-            <li>🌐 Researching emerging threats and implementing cutting-edge solutions.</li>
-            <li>🎓 Sharing my knowledge through blogs, presentations, and mentorship to help others excel in cloud security.</li>
-          </ul>
+        <h2 class="section-heading">Why This Page?</h2>
+        <div class="row">
+          <!-- First Row -->
+          <div class="col-md-6">
+            <div class="feature-box">
+              <h3>Roadmaps</h3>
+              <p>Step-by-step guides to mastering DevOps and cloud technologies.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="feature-box">
+              <h3>Blogs</h3>
+              <p>In-depth articles on the latest trends and best practices.</p>
+            </div>
+          </div>
+          <!-- Second Row -->
+          <div class="col-md-6">
+            <div class="feature-box">
+              <h3>Labs</h3>
+              <p>Hands-on labs to practice and sharpen your skills.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="feature-box">
+              <h3>Articles</h3>
+              <p>Curated content to help you stay updated and informed.</p>
+            </div>
+          </div>
+          <!-- Third Row -->
+          <div class="col-md-6">
+            <div class="feature-box">
+              <h3>Guides</h3>
+              <p>Detailed tutorials and how-tos for complex topics.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="feature-box">
+              <h3>Resources</h3>
+              <p>Tools, templates, and references to accelerate your learning.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-   <!-- Why This Page Section -->
-<section id="why-this-page" class="section">
-  <div class="container">
-    <h2 class="section-heading">Why This Page?</h2>
-    <div class="bio-content">
-      <p>Welcome to my <strong>all-in-one resource hub</strong>! This page is designed to help you achieve your goals in cloud computing, DevOps, and beyond. Whether you're a student, a professional, or just curious, you'll find everything you need here.</p>
-      <p><strong>What You'll Find:</strong></p>
-      <ul>
-        <li><strong>Roadmaps:</strong> Step-by-step guides to mastering DevOps, cloud technologies, and more.</li>
-        <li><strong>Blogs:</strong> In-depth articles on the latest trends, tools, and best practices in DevOps and cloud engineering.</li>
-        <li><strong>Labs:</strong> Hands-on labs to practice and sharpen your skills in real-world scenarios.</li>
-        <li><strong>Articles:</strong> Curated content to help you stay updated and informed.</li>
-        <li><strong>Guides:</strong> Detailed tutorials and how-tos to help you navigate complex topics.</li>
-        <li><strong>Resources:</strong> A collection of tools, templates, and references to accelerate your learning.</li>
-      </ul>
-      <p>My goal is to make this page a <strong>one-stop destination</strong> for anyone looking to learn, grow, and excel in the world of cloud and DevOps. Let’s embark on this journey together!</p>
-    </div>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
         <p>&copy; 2023 Rahul Ambaragonda. All rights reserved.</p>
       </div>
     </footer>
