@@ -1,112 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate DevOps Roadmap</title>
+    <title>Ultimate Azure DevOps Roadmap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #0e0e0e;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-        }
-        .container {
-            padding: 50px;
-        }
-        .section {
-            margin-bottom: 50px;
-            padding: 30px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #1e1e1e, #252525);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-        }
-        h1, h2, h3 {
-            color: #00ffff;
-        }
-        .btn-learn {
-            background: #00ffff;
-            color: #000;
-            border: none;
-        }
-        .btn-learn:hover {
-            background: #00cccc;
-        }
-        .list-group-item {
-            background: transparent;
-            color: #fff;
-            border: none;
-        }
-        .list-group-item a {
-            color: #00ffff;
-            text-decoration: none;
-        }
-        .list-group-item a:hover {
-            color: #00cccc;
-        }
+      /* Global Styles */
+      body {
+        background-color: #000000; /* Black background */
+        color: #ffffff; /* White text color */
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1, h2, h3 {
+        color: #ffdd57; /* Yellow accent color */
+        font-family: 'Orbitron', sans-serif; /* Futuristic font */
+      }
+      .container {
+        padding: 50px;
+      }
+      .section {
+        margin-bottom: 50px;
+        padding: 30px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #1a1a1a, #262626); /* Dark gray gradient */
+        box-shadow: 0 0 20px rgba(255, 221, 87, 0.3); /* Yellow glow effect */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .section:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 30px rgba(255, 221, 87, 0.5); /* Enhanced glow on hover */
+      }
+      .btn-learn {
+        background: #ffdd57; /* Yellow accent color */
+        color: #000000; /* Black text color */
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .btn-learn:hover {
+        background: #ffcc00; /* Darker yellow on hover */
+        color: #000000; /* Black text on hover */
+      }
+      .list-group-item {
+        background: transparent;
+        color: #ffffff;
+        border: none;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      .list-group-item:hover {
+        background: rgba(255, 221, 87, 0.1); /* Yellow hover effect */
+      }
+      .list-group-item a {
+        color: #ffdd57; /* Yellow accent color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .list-group-item a:hover {
+        color: #ffcc00; /* Darker yellow on hover */
+      }
+      .icon {
+        margin-right: 10px;
+        color: #ffdd57; /* Yellow accent color */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1 class="text-center">🚀 Ultimate DevOps Roadmap</h1>
-        
-        <div class="section">
-            <h2>Phase 1: Foundational Knowledge</h2>
-            <p>Before diving into DevOps tools and methodologies, you need a strong foundation in key IT concepts. These basics are the building blocks that will help you understand and leverage the more advanced DevOps practices effectively.</p>
-            
-            <h3>🔹 Networking Basics</h3>
-            <p>Networking is crucial to understanding how systems communicate over the internet and within a cloud environment. You'll learn the fundamentals of DNS, common ports, and IP addressing.</p>
-            <ul class="list-group">
-                <li class="list-group-item">How DNS works (<a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank">Learn More</a>)</li>
-                <li class="list-group-item">Understanding common ports (22, 80, 443, etc.) (<a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers" target="_blank">Port List</a>)</li>
-                <li class="list-group-item">IP addressing & subnetting (<a href="https://www.practicalnetworking.net/stand-alone/subnetting-tutorial/" target="_blank">Subnetting Guide</a>)</li>
-            </ul>
-            
-            <h3>🔹 Linux Fundamentals</h3>
-            <p>Linux is widely used in DevOps for server management. Understanding how to manage processes, disks, and memory is crucial for configuring and maintaining servers and containers.</p>
-            <ul class="list-group">
-                <li class="list-group-item">Process management (ps, top, htop) (<a href="https://www.tutorialspoint.com/unix_commands/processes_control.htm" target="_blank">Learn More</a>)</li>
-                <li class="list-group-item">Disk space & memory management (<a href="https://linuxize.com/post/how-to-check-disk-space-in-linux/" target="_blank">Guide</a>)</li>
-            </ul>
-        </div>
+      <h1 class="text-center">🚀 Ultimate Azure DevOps Roadmap</h1>
+      
+      <!-- Phase 1: Foundational Knowledge -->
+      <div class="section">
+        <h2>Phase 1: Foundational Knowledge</h2>
+        <p>Before diving into DevOps tools, mastering fundamental IT concepts is crucial. This phase ensures you have a strong foundation to build upon.</p>
+        <h3><i class="fas fa-network-wired icon"></i> Networking Basics</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>How DNS works:</strong> Learn how Domain Name System (DNS) translates human-readable domain names into IP addresses. This is essential for understanding how applications communicate over the internet.
+            <a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank">Learn More</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Understanding common ports:</strong> Familiarize yourself with ports like 22 (SSH), 80 (HTTP), and 443 (HTTPS). Knowing these ports helps you configure firewalls and troubleshoot network issues.
+            <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers" target="_blank">Port List</a>
+          </li>
+          <li class="list-group-item">
+            <strong>IP addressing & subnetting:</strong> Learn how IP addresses are structured and how subnetting works. This is critical for designing and managing networks.
+            <a href="https://www.practicalnetworking.net/stand-alone/subnetting-tutorial/" target="_blank">Subnetting Guide</a>
+          </li>
+        </ul>
+        <h3><i class="fas fa-terminal icon"></i> Linux Fundamentals</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Process management:</strong> Learn how to manage processes using commands like <code>ps</code>, <code>top</code>, and <code>htop</code>. This is essential for monitoring and optimizing system performance.
+            <a href="https://www.tutorialspoint.com/unix_commands/processes_control.htm" target="_blank">Learn More</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Disk space & memory management:</strong> Understand how to monitor and manage disk space and memory usage. This helps prevent system crashes and optimize resource allocation.
+            <a href="https://linuxize.com/post/how-to-check-disk-space-in-linux/" target="_blank">Guide</a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="section">
-            <h2>Phase 2: Cloud & Infrastructure as Code</h2>
-            <p>DevOps is heavily cloud-oriented, and understanding the basics of cloud platforms like AWS and Azure is essential. You'll also learn about Infrastructure as Code (IaC), which allows you to define and provision cloud infrastructure programmatically.</p>
-            <ul class="list-group">
-                <li class="list-group-item">AWS Fundamentals (<a href="https://aws.amazon.com/training/" target="_blank">AWS Training</a>)</li>
-                <li class="list-group-item">Azure Fundamentals (<a href="https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/" target="_blank">Microsoft Learn</a>)</li>
-                <li class="list-group-item">Infrastructure as Code (Terraform) (<a href="https://developer.hashicorp.com/terraform/tutorials" target="_blank">Terraform Guide</a>)</li>
-            </ul>
-        </div>
+      <!-- Phase 2: Azure Cloud & Infrastructure as Code -->
+      <div class="section">
+        <h2>Phase 2: Azure Cloud & Infrastructure as Code</h2>
+        <p>Azure is at the core of modern DevOps. Learn the fundamentals of Azure services and how to automate infrastructure using tools like Terraform.</p>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Azure Fundamentals:</strong> Explore Azure services like Virtual Machines, App Services, and Azure Active Directory. Learn how to build and manage cloud solutions on Azure.
+            <a href="https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/" target="_blank">Microsoft Learn</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Infrastructure as Code (Terraform):</strong> Learn how to define and provision infrastructure using Terraform. This enables you to automate and version-control your infrastructure.
+            <a href="https://developer.hashicorp.com/terraform/tutorials" target="_blank">Terraform Guide</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Azure Resource Manager (ARM):</strong> Understand how to use ARM templates to deploy and manage Azure resources programmatically.
+            <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview" target="_blank">ARM Templates</a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="section">
-            <h2>Phase 3: Containers & Kubernetes</h2>
-            <p>Containers allow you to package and deploy applications consistently across different environments. Kubernetes is the leading orchestration platform for managing containers. Learning these technologies will help you in building scalable and maintainable systems.</p>
-            <ul class="list-group">
-                <li class="list-group-item">Docker Basics (<a href="https://docs.docker.com/get-started/" target="_blank">Docker Docs</a>)</li>
-                <li class="list-group-item">Kubernetes Introduction (<a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/" target="_blank">K8s Basics</a>)</li>
-            </ul>
-        </div>
+      <!-- Phase 3: Containers & Kubernetes on Azure -->
+      <div class="section">
+        <h2>Phase 3: Containers & Kubernetes on Azure</h2>
+        <p>Master containerization and orchestration for modern cloud applications. Learn how to build, deploy, and manage scalable applications using Docker and Azure Kubernetes Service (AKS).</p>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Docker Basics:</strong> Learn how to create, manage, and deploy containers using Docker. Containers ensure consistency across development, testing, and production environments.
+            <a href="https://docs.docker.com/get-started/" target="_blank">Docker Docs</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Azure Kubernetes Service (AKS):</strong> Understand how to deploy and manage Kubernetes clusters on Azure. Learn about pods, services, and deployments to manage scalable applications.
+            <a href="https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes" target="_blank">AKS Basics</a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="section">
-            <h2>Phase 4: DevSecOps & Security</h2>
-            <p>Security is a critical part of DevOps, and integrating security practices into the pipeline from the start is essential. This phase focuses on security in the cloud, role-based access control (RBAC), and securing CI/CD pipelines.</p>
-            <ul class="list-group">
-                <li class="list-group-item">RBAC & IAM in Cloud (<a href="https://learn.microsoft.com/en-us/azure/role-based-access-control/overview" target="_blank">Azure RBAC</a>)</li>
-                <li class="list-group-item">Zero Trust Security (<a href="https://www.microsoft.com/en-us/security/business/zero-trust" target="_blank">Zero Trust Guide</a>)</li>
-                <li class="list-group-item">Security in CI/CD Pipelines (<a href="https://snyk.io/learn/secure-cicd-pipeline/" target="_blank">Secure CI/CD</a>)</li>
-            </ul>
-        </div>
+      <!-- Phase 4: Observability with Prometheus & Grafana -->
+      <div class="section">
+        <h2>Phase 4: Observability with Prometheus & Grafana</h2>
+        <p>Observability is critical for monitoring and troubleshooting applications. Learn how to set up monitoring and alerting using Prometheus and Grafana.</p>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Prometheus:</strong> Learn how to set up Prometheus for monitoring and alerting. Understand metrics collection, querying, and alerting rules.
+            <a href="https://prometheus.io/docs/introduction/overview/" target="_blank">Prometheus Docs</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Grafana:</strong> Use Grafana to visualize metrics collected by Prometheus. Create dashboards to monitor application performance and health.
+            <a href="https://grafana.com/docs/grafana/latest/getting-started/" target="_blank">Grafana Docs</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Azure Monitor:</strong> Integrate Azure Monitor with Prometheus and Grafana for comprehensive observability across your Azure infrastructure.
+            <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview" target="_blank">Azure Monitor</a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="section">
-            <h2>🚀 Next Steps</h2>
-            <p>By following this roadmap, you'll be well on your way to mastering DevOps. Keep practicing, explore real-world projects, and continue learning to become an expert DevOps engineer.</p>
-            <a href="https://roadmap.sh/devops" target="_blank" class="btn btn-learn">Explore More</a>
-        </div>
+      <!-- Phase 5: DevSecOps & Security on Azure -->
+      <div class="section">
+        <h2>Phase 5: DevSecOps & Security on Azure</h2>
+        <p>Security must be integrated into DevOps workflows from the start. Learn how to implement security best practices in your pipelines and infrastructure.</p>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>RBAC & IAM in Azure:</strong> Understand Role-Based Access Control (RBAC) and Identity and Access Management (IAM) to secure Azure resources.
+            <a href="https://learn.microsoft.com/en-us/azure/role-based-access-control/overview" target="_blank">Azure RBAC</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Zero Trust Security:</strong> Learn how to implement a Zero Trust architecture to secure your applications and infrastructure on Azure.
+            <a href="https://www.microsoft.com/en-us/security/business/zero-trust" target="_blank">Zero Trust Guide</a>
+          </li>
+          <li class="list-group-item">
+            <strong>Security in CI/CD Pipelines:</strong> Integrate security tools like SAST, DAST, and secret scanning into your CI/CD pipelines to detect vulnerabilities early.
+            <a href="https://snyk.io/learn/secure-cicd-pipeline/" target="_blank">Secure CI/CD</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="section">
+        <h2>🚀 Next Steps</h2>
+        <p>By following this roadmap, you'll be on your way to becoming a top-tier Azure DevOps Engineer. Keep learning, experimenting, and building!</p>
+        <a href="https://roadmap.sh/devops" target="_blank" class="btn btn-learn">Explore More</a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
-
-
