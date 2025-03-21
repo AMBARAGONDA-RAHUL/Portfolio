@@ -1,198 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Azure DevOps Roadmap</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Roadmap - Cloud First, Then Terraform & Ansible</title>
+  <style>
+    /* General Styles */
+    body {
+      background-color: #000000; /* Black background */
+      color: #FFD700; /* Yellow text */
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
 
-      
-      /* Global Styles */
-      body {
-        background-color: #000000; /* Black background */
-        color: #ffffff; /* White text color */
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      h1, h2, h3 {
-        color: #ffdd57; /* Yellow accent color */
-        font-family: 'Orbitron', sans-serif; /* Futuristic font */
-      }
-      .container {
-        padding: 50px;
-      }
-      .section {
-        margin-bottom: 50px;
-        padding: 30px;
-        border-radius: 10px;
-        background: linear-gradient(135deg, #1a1a1a, #262626); /* Dark gray gradient */
-        box-shadow: 0 0 20px rgba(255, 221, 87, 0.3); /* Yellow glow effect */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .section:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 30px rgba(255, 221, 87, 0.5); /* Enhanced glow on hover */
-      }
-      .btn-learn {
-        background: #ffdd57; /* Yellow accent color */
-        color: #000000; /* Black text color */
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-      .btn-learn:hover {
-        background: #ffcc00; /* Darker yellow on hover */
-        color: #000000; /* Black text on hover */
-      }
-      .list-group-item {
-        background: transparent;
-        color: #ffffff;
-        border: none;
-        margin: 10px 0;
-        padding: 15px;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-      }
-      .list-group-item:hover {
-        background: rgba(255, 221, 87, 0.1); /* Yellow hover effect */
-      }
-      .list-group-item a {
-        color: #ffdd57; /* Yellow accent color */
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-      .list-group-item a:hover {
-        color: #ffcc00; /* Darker yellow on hover */
-      }
-      .icon {
-        margin-right: 10px;
-        color: #ffdd57; /* Yellow accent color */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="text-center">🚀 Ultimate Azure DevOps Roadmap</h1>
-      
-      <!-- Phase 1: Foundational Knowledge -->
-      <div class="section">
-        <h2>Phase 1: Foundational Knowledge</h2>
-        <p>Before diving into DevOps tools, mastering fundamental IT concepts is crucial. This phase ensures you have a strong foundation to build upon.</p>
-        <h3><i class="fas fa-network-wired icon"></i> Networking Basics</h3>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>How DNS works:</strong> Learn how Domain Name System (DNS) translates human-readable domain names into IP addresses. This is essential for understanding how applications communicate over the internet.
-            <a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank">Learn More</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Understanding common ports:</strong> Familiarize yourself with ports like 22 (SSH), 80 (HTTP), and 443 (HTTPS). Knowing these ports helps you configure firewalls and troubleshoot network issues.
-            <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers" target="_blank">Port List</a>
-          </li>
-          <li class="list-group-item">
-            <strong>IP addressing & subnetting:</strong> Learn how IP addresses are structured and how subnetting works. This is critical for designing and managing networks.
-            <a href="https://www.practicalnetworking.net/stand-alone/subnetting-tutorial/" target="_blank">Subnetting Guide</a>
-          </li>
-        </ul>
-        <h3><i class="fas fa-terminal icon"></i> Linux Fundamentals</h3>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>Process management:</strong> Learn how to manage processes using commands like <code>ps</code>, <code>top</code>, and <code>htop</code>. This is essential for monitoring and optimizing system performance.
-            <a href="https://www.tutorialspoint.com/unix_commands/processes_control.htm" target="_blank">Learn More</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Disk space & memory management:</strong> Understand how to monitor and manage disk space and memory usage. This helps prevent system crashes and optimize resource allocation.
-            <a href="https://linuxize.com/post/how-to-check-disk-space-in-linux/" target="_blank">Guide</a>
-          </li>
-        </ul>
-      </div>
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      margin: 20px 0;
+    }
 
-      <!-- Phase 2: Azure Cloud & Infrastructure as Code -->
-      <div class="section">
-        <h2>Phase 2: Azure Cloud & Infrastructure as Code</h2>
-        <p>Azure is at the core of modern DevOps. Learn the fundamentals of Azure services and how to automate infrastructure using tools like Terraform.</p>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>Azure Fundamentals:</strong> Explore Azure services like Virtual Machines, App Services, and Azure Active Directory. Learn how to build and manage cloud solutions on Azure.
-            <a href="https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/" target="_blank">Microsoft Learn</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Infrastructure as Code (Terraform):</strong> Learn how to define and provision infrastructure using Terraform. This enables you to automate and version-control your infrastructure.
-            <a href="https://developer.hashicorp.com/terraform/tutorials" target="_blank">Terraform Guide</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Azure Resource Manager (ARM):</strong> Understand how to use ARM templates to deploy and manage Azure resources programmatically.
-            <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview" target="_blank">ARM Templates</a>
-          </li>
-        </ul>
-      </div>
+    h2 {
+      font-size: 36px;
+      margin: 0;
+      text-align: center;
+    }
 
-      <!-- Phase 3: Containers & Kubernetes on Azure -->
-      <div class="section">
-        <h2>Phase 3: Containers & Kubernetes on Azure</h2>
-        <p>Master containerization and orchestration for modern cloud applications. Learn how to build, deploy, and manage scalable applications using Docker and Azure Kubernetes Service (AKS).</p>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>Docker Basics:</strong> Learn how to create, manage, and deploy containers using Docker. Containers ensure consistency across development, testing, and production environments.
-            <a href="https://docs.docker.com/get-started/" target="_blank">Docker Docs</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Azure Kubernetes Service (AKS):</strong> Understand how to deploy and manage Kubernetes clusters on Azure. Learn about pods, services, and deployments to manage scalable applications.
-            <a href="https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes" target="_blank">AKS Basics</a>
-          </li>
-        </ul>
-      </div>
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
 
-      <!-- Phase 4: Observability with Prometheus & Grafana -->
-      <div class="section">
-        <h2>Phase 4: Observability with Prometheus & Grafana</h2>
-        <p>Observability is critical for monitoring and troubleshooting applications. Learn how to set up monitoring and alerting using Prometheus and Grafana.</p>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>Prometheus:</strong> Learn how to set up Prometheus for monitoring and alerting. Understand metrics collection, querying, and alerting rules.
-            <a href="https://prometheus.io/docs/introduction/overview/" target="_blank">Prometheus Docs</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Grafana:</strong> Use Grafana to visualize metrics collected by Prometheus. Create dashboards to monitor application performance and health.
-            <a href="https://grafana.com/docs/grafana/latest/getting-started/" target="_blank">Grafana Docs</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Azure Monitor:</strong> Integrate Azure Monitor with Prometheus and Grafana for comprehensive observability across your Azure infrastructure.
-            <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview" target="_blank">Azure Monitor</a>
-          </li>
-        </ul>
-      </div>
+    /* Grid Layout for Roadmap */
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-      <!-- Phase 5: DevSecOps & Security on Azure -->
-      <div class="section">
-        <h2>Phase 5: DevSecOps & Security on Azure</h2>
-        <p>Security must be integrated into DevOps workflows from the start. Learn how to implement security best practices in your pipelines and infrastructure.</p>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>RBAC & IAM in Azure:</strong> Understand Role-Based Access Control (RBAC) and Identity and Access Management (IAM) to secure Azure resources.
-            <a href="https://learn.microsoft.com/en-us/azure/role-based-access-control/overview" target="_blank">Azure RBAC</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Zero Trust Security:</strong> Learn how to implement a Zero Trust architecture to secure your applications and infrastructure on Azure.
-            <a href="https://www.microsoft.com/en-us/security/business/zero-trust" target="_blank">Zero Trust Guide</a>
-          </li>
-          <li class="list-group-item">
-            <strong>Security in CI/CD Pipelines:</strong> Integrate security tools like SAST, DAST, and secret scanning into your CI/CD pipelines to detect vulnerabilities early.
-            <a href="https://snyk.io/learn/secure-cicd-pipeline/" target="_blank">Secure CI/CD</a>
-          </li>
-        </ul>
-      </div>
+    .phase {
+      background-color: #1a1a1a; /* Dark gray */
+      border: 2px solid #FFD700; /* Yellow border */
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+    }
 
-      <!-- Next Steps -->
-      <div class="section">
-        <h2>🚀 Next Steps</h2>
-        <p>By following this roadmap, you'll be on your way to becoming a top-tier Azure DevOps Engineer. Keep learning, experimenting, and building!</p>
-        <a href="https://roadmap.sh/devops" target="_blank" class="btn btn-learn">Explore More</a>
-      </div>
+    .phase h3 {
+      font-size: 24px;
+      margin: 0 0 10px 0;
+      color: #FFD700;
+      text-align: center;
+    }
+
+    .phase ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .phase ul li {
+      background-color: #333333; /* Darker gray */
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .phase ul li:hover {
+      background-color: #444444; /* Lighter gray on hover */
+      cursor: pointer;
+    }
+
+    .phase ul li strong {
+      color: #FFD700;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid #FFD700;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .phase h3 {
+        font-size: 20px;
+      }
+
+      .phase ul li {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>DevOps Roadmap</h1>
+    <h2>From Beginner to Expert</h2>
+  </header>
+
+  <!-- Roadmap Grid -->
+  <div class="roadmap">
+    <!-- Phase 1 -->
+    <div class="phase">
+      <h3>Phase 1: IT Fundamentals</h3>
+      <ul>
+        <li><strong>Networking:</strong> OSI Model, TCP/IP, DNS, DHCP, Subnetting, Firewalls.</li>
+        <li><strong>Linux Basics:</strong> File systems, permissions, processes, package management.</li>
+        <li><strong>Shell Scripting:</strong> Bash scripting for automation.</li>
+        <li><strong>Version Control:</strong> Git (branching, merging, rebasing).</li>
+        <li><strong>Programming:</strong> Python basics (loops, conditionals, functions).</li>
+      </ul>
     </div>
-  </body>
+
+    <!-- Phase 2 -->
+    <div class="phase">
+      <h3>Phase 2: Cloud Computing</h3>
+      <ul>
+        <li><strong>Cloud Basics:</strong> IaaS, PaaS, SaaS.</li>
+        <li><strong>Azure:</strong> Compute, Storage, Networking, Security.</li>
+        <li><strong>AWS:</strong> EC2, S3, RDS, IAM.</li>
+        <li><strong>GCP:</strong> Compute Engine, Cloud Storage, BigQuery.</li>
+        <li><strong>Cloud CLI:</strong> Azure CLI, AWS CLI, GCP CLI.</li>
+      </ul>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase">
+      <h3>Phase 3: Infrastructure as Code (IaC)</h3>
+      <ul>
+        <li><strong>Terraform:</strong> Basics, modules, state management, providers.</li>
+        <li><strong>Ansible:</strong> Playbooks, roles, inventory management, modules.</li>
+        <li><strong>Use Cases:</strong> Provisioning cloud resources, configuration management.</li>
+        <li><strong>Best Practices:</strong> Versioning, modularity, reusability.</li>
+      </ul>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="phase">
+      <h3>Phase 4: Containerization & Orchestration</h3>
+      <ul>
+        <li><strong>Docker:</strong> Images, containers, Dockerfile, Docker Compose.</li>
+        <li><strong>Kubernetes:</strong> Pods, Deployments, Services, ConfigMaps, Secrets.</li>
+        <li><strong>Helm:</strong> Package management for Kubernetes.</li>
+        <li><strong>Service Mesh:</strong> Istio, Linkerd.</li>
+        <li><strong>Monitoring:</strong> Prometheus, Grafana.</li>
+      </ul>
+    </div>
+
+    <!-- Phase 5 -->
+    <div class="phase">
+      <h3>Phase 5: CI/CD & DevSecOps</h3>
+      <ul>
+        <li><strong>CI/CD Tools:</strong> Jenkins, GitLab CI/CD, GitHub Actions.</li>
+        <li><strong>Security Tools:</strong> SonarQube, Trivy, OWASP ZAP.</li>
+        <li><strong>Secrets Management:</strong> HashiCorp Vault, AWS Secrets Manager.</li>
+        <li><strong>Compliance:</strong> GDPR, HIPAA, PCI-DSS.</li>
+        <li><strong>Chaos Engineering:</strong> Chaos Monkey, Gremlin.</li>
+      </ul>
+    </div>
+
+    <!-- Phase 6 -->
+    <div class="phase">
+      <h3>Phase 6: Advanced DevOps & Specialization</h3>
+      <ul>
+        <li><strong>Multi-Cloud:</strong> Azure, AWS, GCP integration.</li>
+        <li><strong>Serverless:</strong> AWS Lambda, Azure Functions.</li>
+        <li><strong>Performance Testing:</strong> JMeter, Gatling.</li>
+        <li><strong>Certifications:</strong> CKA, Terraform Associate, AWS DevOps Pro.</li>
+        <li><strong>Leadership:</strong> DevOps culture, team collaboration.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 DevOps Roadmap. All rights reserved.</p>
+  </footer>
+</body>
 </html>
