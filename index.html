@@ -114,13 +114,16 @@
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(255, 221, 87, 0.3); /* Yellow glow effect */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%; /* Full width */
+        max-width: 800px; /* Adjust this value to make it longer */
+        margin: 0 auto; /* Center the box */
       }
       .about .bio-content:hover {
         transform: translateY(-10px);
         box-shadow: 0 0 30px rgba(255, 221, 87, 0.5); /* Enhanced glow on hover */
       }
       .about .bio-content p {
-        font-size: 1.1rem;
+        font-size: 1rem; /* Smaller font size */
         color: #ffffff;
         margin-bottom: 1.5rem;
       }
@@ -130,7 +133,7 @@
       }
       .about .bio-content ul li {
         margin-bottom: 1rem;
-        font-size: 1.1rem;
+        font-size: 1rem; /* Smaller font size */
         color: #ffffff;
       }
       .about .bio-content ul li::before {
@@ -200,6 +203,13 @@
         }
         .about .bio-content {
           padding: 1.5rem; /* Adjust padding for mobile */
+          max-width: 90%; /* Adjust width for mobile */
+        }
+        .about .bio-content p {
+          font-size: 0.9rem; /* Smaller font size for mobile */
+        }
+        .about .bio-content ul li {
+          font-size: 0.9rem; /* Smaller font size for mobile */
         }
         .features .feature-box {
           flex: 0 0 calc(50% - 1.5rem); /* Two boxes per row for mobile */
@@ -221,6 +231,13 @@
         }
         .about .bio-content {
           padding: 1rem; /* Adjust padding for very small screens */
+          max-width: 95%; /* Adjust width for very small screens */
+        }
+        .about .bio-content p {
+          font-size: 0.85rem; /* Smaller font size for very small screens */
+        }
+        .about .bio-content ul li {
+          font-size: 0.85rem; /* Smaller font size for very small screens */
         }
         .features .feature-box {
           flex: 0 0 100%; /* Full width for very small screens */
@@ -289,11 +306,10 @@
               <p>Hands-on labs to practice and sharpen your skills.</p>
             </a>
           </div>
-      <div class="feature-box">
-        <a href="https://cloudsimplified.hashnode.dev/" target="_blank">
-          <h3>Articles</h3>
-          <p>Curated content to help you stay updated and informed.</p>
-          
+          <div class="feature-box">
+            <a href="https://cloudsimplified.hashnode.dev/" target="_blank">
+              <h3>Articles</h3>
+              <p>Curated content to help you stay updated and informed.</p>
             </a>
           </div>
           <div class="feature-box">
