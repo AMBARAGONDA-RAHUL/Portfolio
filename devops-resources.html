@@ -7,79 +7,65 @@
     <style>
         /* Global Styles */
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Modern tech font */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Professional and clean font */
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Dark gradient background */
-            color: #E0E0E0; /* Light gray text */
+            background-color: #1A1A1A; /* Matte Black background */
+            color: #D4C5B0; /* Warm Beige for primary text */
         }
 
-        h1, h2, h3 {
-            color: #FFFFFF; /* White headings */
+        h1, h2 {
+            color: #B85C5C; /* Dusty Rose for headings */
             font-weight: 600; /* Semi-bold for headings */
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
             font-size: 2rem;
             margin-top: 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         h3 {
             font-size: 1.5rem;
-            color: #B0B0B0; /* Light gray for side headings */
+            color: #B85C5C; /* Dusty Rose for side headings */
         }
 
         a {
-            color: #00D1FF; /* Futuristic blue for links */
+            color: #B85C5C; /* Dusty Rose for links */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #00FFD1; /* Brighter teal on hover */
+            color: #8A4F4F; /* Warm Brownish-Red on hover */
             text-decoration: underline;
         }
 
         p {
-            color: #CCCCCC; /* Light gray for paragraphs */
+            color: #D4C5B0; /* Warm Beige for paragraphs */
         }
 
         /* Section Styles */
         .section {
-            background: rgba(255, 255, 255, 0.05); /* Semi-transparent white background */
+            background: #1A1A1A; /* Matte Black for boxes */
             padding: 20px;
             margin: 20px 0;
-            border-radius: 12px;
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            border: 1px solid #333333; /* Subtle border for separation */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .playlist, .course, .resource {
             margin: 10px 0;
             padding: 15px;
-            border-left: 4px solid #00D1FF; /* Futuristic blue accent border */
-            background: rgba(255, 255, 255, 0.03); /* Slightly lighter background */
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-
-        .playlist:hover, .course:hover, .resource:hover {
-            background: rgba(255, 255, 255, 0.07); /* Hover effect */
+            border-left: 4px solid #B85C5C; /* Dusty Rose accent border */
+            background: #262626; /* Slightly lighter black for playlists/courses */
+            border-radius: 4px;
         }
 
         .playlist a, .course a, .resource a {
@@ -87,7 +73,7 @@
         }
 
         .description {
-            color: #B0B0B0; /* Light gray for descriptions */
+            color: #A98B75; /* Muted Mocha for descriptions */
             margin-top: 5px;
         }
 
@@ -98,18 +84,7 @@
         .resource-list li {
             margin: 5px 0;
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section, .playlist, .course, .resource {
-            animation: fadeIn 0.6s ease-out;
-        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Modern font -->
 </head>
 <body>
 
@@ -359,18 +334,7 @@
                 <li><a href="https://owasp.org/www-project-devsecops-guideline/" target="_blank">OWASP DevSecOps Guidelines</a></li>
                 <li><a href="https://www.sans.org/white-papers/38200/" target="_blank">SANS DevSecOps Whitepaper</a></li>
                 <li><a href="https://github.com/devsecops/awesome-devsecops" target="_blank">Awesome DevSecOps Resources</a></li>
-            </ul>
-        </div>
-
-        <!-- Observability Documents -->
-        <div class="resource">
-            <h3>Observability</h3>
-            <ul class="resource-list">
-                <li><a href="https://opentelemetry.io/docs/" target="_blank">OpenTelemetry Documentation</a></li>
-                <li><a href="https://prometheus.io/docs/" target="_blank">Prometheus Documentation</a></li>
-                <li><a href="https://grafana.com/docs/" target="_blank">Grafana Documentation</a></li>
-            </ul>
-        </div>
+                   </ul>
     </div>
 
 </body>
