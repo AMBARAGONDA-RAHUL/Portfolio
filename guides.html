@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps Learning Path</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            background-color: #d4af37;
+            color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #d4af37;
+        }
+
+        h3 {
+            color: #d4af37;
+        }
+
+        .pipeline-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .pipeline-step {
+            text-align: center;
+            margin: 20px 0;
+            cursor: pointer;
+            color: #d4af37;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .pipeline-step:hover {
+            color: #fff;
+        }
+
+        .content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #d4af37;
+            color: #000;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DevSecOps Learning Path</h1>
+    </header>
+
+    <section id="overview">
+        <h2>Overview</h2>
+        <p>This page provides a comprehensive learning path for <strong>DevSecOps</strong>. It covers everything from fundamentals to advanced topics, including <strong>GitHub Actions</strong>, <strong>GitOps with Argo CD</strong>, and <strong>AKS (Azure Kubernetes Service)</strong>. Click on each topic to learn more.</p>
+    </section>
+
+    <section id="pipeline">
+        <h2>Learning Path</h2>
+        <div class="pipeline-container">
+            <div class="pipeline-step" onclick="showContent('content1')">
+                DevSecOps Fundamentals
+            </div>
+            <div class="pipeline-step" onclick="showContent('content2')">
+                SAST, SCA, IAC, Container Security
+            </div>
+            <div class="pipeline-step" onclick="showContent('content3')">
+                SAST with Fortify
+            </div>
+            <div class="pipeline-step" onclick="showContent('content4')">
+                IDE Security Plugins (SonarLint, Snyk)
+            </div>
+            <div class="pipeline-step" onclick="showContent('content5')">
+                Container Security with Snyk
+            </div>
+            <div class="pipeline-step" onclick="showContent('content6')">
+                DevSecOps with GitHub Actions
+            </div>
+            <div class="pipeline-step" onclick="showContent('content7')">
+                GitOps with Argo CD
+            </div>
+            <div class="pipeline-step" onclick="showContent('content8')">
+                Azure Kubernetes Service (AKS)
+            </div>
+            <div class="pipeline-step" onclick="showContent('content9')">
+                Application Security
+            </div>
+            <div class="pipeline-step" onclick="showContent('content10')">
+                Advanced DevSecOps
+            </div>
+            <div class="pipeline-step" onclick="showContent('content11')">
+                DevSecOps CV
+            </div>
+            <div class="pipeline-step" onclick="showContent('content12')">
+                DevSecOps Maturity Model
+            </div>
+            <div class="pipeline-step" onclick="showContent('content13')">
+                SCA with Snyk
+            </div>
+            <div class="pipeline-step" onclick="showContent('content14')">
+                IAC Security with Checkov
+            </div>
+            <div class="pipeline-step" onclick="showContent('content15')">
+                SAST with SonarQube
+            </div>
+            <div class="pipeline-step" onclick="showContent('content16')">
+                DevSecOps Roles
+            </div>
+            <div class="pipeline-step" onclick="showContent('content17')">
+                SBOM and SCA
+            </div>
+        </div>
+    </section>
+
+    <section id="content-display">
+        <div id="content1" class="content">
+            <h3>DevSecOps Fundamentals</h3>
+            <p>Learn the basics of DevSecOps, including its principles, practices, and benefits.</p>
+            <ul>
+                <li>Understand the importance of integrating security into the DevOps pipeline.</li>
+                <li>Learn about the DevSecOps lifecycle: Plan, Code, Build, Test, Release, Deploy, Operate, Monitor.</li>
+                <li>Explore key concepts like Shift-Left Security and Continuous Security.</li>
+            </ul>
+        </div>
+        <div id="content2" class="content">
+            <h3>SAST, SCA, IAC, Container Security</h3>
+            <p>Learn about Static Application Security Testing (SAST), Software Composition Analysis (SCA), Infrastructure as Code (IAC) Security, and Container Security.</p>
+            <ul>
+                <li><strong>SAST:</strong> Analyze source code for vulnerabilities.</li>
+                <li><strong>SCA:</strong> Identify vulnerabilities in third-party libraries.</li>
+                <li><strong>IAC Security:</strong> Secure infrastructure code (e.g., Terraform, CloudFormation).</li>
+                <li><strong>Container Security:</strong> Secure container images and runtime environments.</li>
+            </ul>
+        </div>
+        <div id="content3" class="content">
+            <h3>SAST with Fortify</h3>
+            <p>Learn how to perform SAST scans using Fortify On Demand.</p>
+            <ul>
+                <li>Set up Fortify On Demand for your projects.</li>
+                <li>Integrate Fortify with your CI/CD pipeline.</li>
+                <li>Analyze and remediate vulnerabilities found by Fortify.</li>
+            </ul>
+        </div>
+        <div id="content4" class="content">
+            <h3>IDE Security Plugins</h3>
+            <p>Learn how to use IDE security plugins like SonarLint and Snyk.</p>
+            <ul>
+                <li><strong>SonarLint:</strong> Detect and fix code issues directly in your IDE.</li>
+                <li><strong>Snyk:</strong> Find and fix vulnerabilities in dependencies.</li>
+                <li>Integrate these plugins into your development workflow.</li>
+            </ul>
+        </div>
+        <div id="content5" class="content">
+            <h3>Container Security with Snyk</h3>
+            <p>Learn how to scan container images for vulnerabilities using Snyk.</p>
+            <ul>
+                <li>Set up Snyk for container security.</li>
+                <li>Scan Docker images for vulnerabilities.</li>
+                <li>Integrate Snyk with your CI/CD pipeline.</li>
+            </ul>
+        </div>
+        <div id="content6" class="content">
+            <h3>DevSecOps with GitHub Actions</h3>
+            <p>Learn how to implement an end-to-end DevSecOps pipeline using GitHub Actions.</p>
+            <ul>
+                <li>Set up GitHub Actions for CI/CD.</li>
+                <li>Integrate security tools like SAST, SCA, and container security into the pipeline.</li>
+                <li>Automate security checks and deployments.</li>
+            </ul>
+        </div>
+        <div id="content7" class="content">
+            <h3>GitOps with Argo CD</h3>
+            <p>Learn how to manage Kubernetes applications using GitOps with Argo CD.</p>
+            <ul>
+                <li>Set up Argo CD for continuous deployment.</li>
+                <li>Sync Kubernetes manifests from a Git repository to your cluster.</li>
+                <li>Implement rollback and self-healing features.</li>
+            </ul>
+        </div>
+        <div id="content8" class="content">
+            <h3>Azure Kubernetes Service (AKS)</h3>
+            <p>Learn how to deploy and manage containerized applications on AKS.</p>
+            <ul>
+                <li>Set up AKS clusters and deploy applications.</li>
+                <li>Integrate AKS with Azure Security Center and Azure Policy.</li>
+                <li>Use Horizontal Pod Autoscaler (HPA) for automatic scaling.</li>
+            </ul>
+        </div>
+        <div id="content9" class="content">
+            <h3>Application Security</h3>
+            <p>Learn the basics of application security and how it fits into DevSecOps.</p>
+            <ul>
+                <li>Understand common application vulnerabilities (e.g., OWASP Top 10).</li>
+                <li>Learn how to secure APIs and web applications.</li>
+                <li>Explore tools and techniques for application security testing.</li>
+            </ul>
+        </div>
+        <div id="content10" class="content">
+            <h3>Advanced DevSecOps</h3>
+            <p>Learn intermediate to advanced processes in DevSecOps.</p>
+            <ul>
+                <li>Explore advanced CI/CD pipeline configurations.</li>
+                <li>Learn about threat modeling and risk assessment.</li>
+                <li>Understand how to implement security in microservices architectures.</li>
+            </ul>
+        </div>
+        <div id="content11" class="content">
+            <h3>DevSecOps CV</h3>
+            <p>Learn how to create a CV for Security/DevSecOps jobs.</p>
+            <ul>
+                <li>Highlight your DevSecOps skills and experience.</li>
+                <li>Include certifications, tools, and projects.</li>
+                <li>Tailor your CV for specific job roles.</li>
+            </ul>
+        </div>
+        <div id="content12" class="content">
+            <h3>DevSecOps Maturity Model</h3>
+            <p>Learn about the DevSecOps Maturity Model and how to assess your organization's maturity level.</p>
+            <ul>
+                <li>Understand the stages of DevSecOps maturity: Initial, Managed, Defined, Measured, Optimized.</li>
+                <li>Learn how to improve your organization's DevSecOps practices.</li>
+            </ul>
+        </div>
+        <div id="content13" class="content">
+            <h3>SCA with Snyk</h3>
+            <p>Learn how to perform Software Composition Analysis (SCA) using Snyk.</p>
+            <ul>
+                <li>Set up Snyk for dependency scanning.</li>
+                <li>Identify and fix vulnerabilities in third-party libraries.</li>
+                <li>Integrate Snyk with your CI/CD pipeline.</li>
+            </ul>
+        </div>
+        <div id="content14" class="content">
+            <h3>IAC Security with Checkov</h3>
+            <p>Learn how to scan Infrastructure as Code (IAC) for security issues using Checkov.</p>
+            <ul>
+                <li>Set up Checkov for IAC security.</li>
+                <li>Scan Terraform, CloudFormation, and other IAC templates.</li>
+                <li>Integrate Checkov with your CI/CD pipeline.</li>
+            </ul>
+        </div>
+        <div id="content15" class="content">
+            <h3>SAST with SonarQube</h3>
+            <p>Learn how to run SAST scans using SonarQube with and without a CI/CD pipeline.</p>
+            <ul>
+                <li>Set up SonarQube for code analysis.</li>
+                <li>Integrate SonarQube with your CI/CD pipeline.</li>
+                <li>Analyze and remediate vulnerabilities found by SonarQube.</li>
+            </ul>
+        </div>
+        <div id="content16" class="content">
+            <h3>DevSecOps Roles</h3>
+            <p>Learn about the roles and responsibilities of a DevSecOps Engineer.</p>
+            <ul>
+                <li>Understand the skills required for a DevSecOps role.</li>
+                <li>Learn about day-to-day tasks and responsibilities.</li>
+                <li>Explore career growth opportunities in DevSecOps.</li>
+            </ul>
+        </div>
+        <div id="content17" class="content">
+            <h3>SBOM and SCA</h3>
+            <p>Learn about Software Bill of Materials (SBOM) and Software Composition Analysis (SCA).</p>
+            <ul>
+                <li>Understand the importance of SBOM in supply chain security.</li>
+                <li>Learn how to generate and analyze SBOMs.</li>
+                <li>Explore tools for SCA and SBOM management.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showContent(contentId) {
+            // Hide all content divs
+            var contents = document.getElementsByClassName('content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = 'none';
+            }
+
+            // Show the selected content div
+            document.getElementById(contentId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
