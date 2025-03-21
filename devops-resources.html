@@ -5,59 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps, DevSecOps, Azure, AWS, Kubernetes & Observability Learning Path</title>
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Modern tech font */
             line-height: 1.6;
-            margin: 20px;
-            background-color: #000000; /* Black background */
-            color: #FFFFFF; /* White text */
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Dark gradient background */
+            color: #E0E0E0; /* Light gray text */
         }
-        h1, h2 {
-            color: #FFFACD; /* Very low light yellow for headings */
+
+        h1, h2, h3 {
+            color: #FFFFFF; /* White headings */
+            font-weight: 600; /* Semi-bold for headings */
         }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
         h3 {
-            color: #FFFACD; /* Very low light yellow for side headings */
+            font-size: 1.5rem;
+            color: #B0B0B0; /* Light gray for side headings */
         }
+
         a {
-            color: #FFFACD; /* Very low light yellow for links */
+            color: #00D1FF; /* Futuristic blue for links */
             text-decoration: none;
+            transition: color 0.3s ease;
         }
+
         a:hover {
+            color: #00FFD1; /* Brighter teal on hover */
             text-decoration: underline;
-            color: #FFFFE0; /* Slightly brighter light yellow on hover */
         }
+
+        p {
+            color: #CCCCCC; /* Light gray for paragraphs */
+        }
+
+        /* Section Styles */
         .section {
-            background: #1A1A1A; /* Dark gray for sections */
+            background: rgba(255, 255, 255, 0.05); /* Semi-transparent white background */
             padding: 20px;
             margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05); /* Subtle white shadow */
-            border-left: 4px solid #FFFACD; /* Very low light yellow accent border */
+            border-radius: 12px;
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .section h2 {
-            margin-top: 0;
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
+
         .playlist, .course, .resource {
             margin: 10px 0;
             padding: 15px;
-            border-left: 4px solid #FFFACD; /* Very low light yellow border */
-            background: #262626; /* Slightly lighter dark gray for playlists/courses */
-            border-radius: 4px;
+            border-left: 4px solid #00D1FF; /* Futuristic blue accent border */
+            background: rgba(255, 255, 255, 0.03); /* Slightly lighter background */
+            border-radius: 8px;
+            transition: background 0.3s ease;
         }
+
+        .playlist:hover, .course:hover, .resource:hover {
+            background: rgba(255, 255, 255, 0.07); /* Hover effect */
+        }
+
         .playlist a, .course a, .resource a {
             font-weight: bold;
         }
+
         .description {
-            color: #CCCCCC; /* Light gray for descriptions */
+            color: #B0B0B0; /* Light gray for descriptions */
             margin-top: 5px;
         }
+
         .resource-list {
             margin-left: 20px;
         }
+
         .resource-list li {
             margin: 5px 0;
         }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section, .playlist, .course, .resource {
+            animation: fadeIn 0.6s ease-out;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"> <!-- Modern font -->
 </head>
 <body>
 
