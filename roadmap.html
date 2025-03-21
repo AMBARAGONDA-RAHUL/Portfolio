@@ -3,92 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevOps Roadmap - Vertical Layout</title>
+  <title>DevOps Roadmap - Futuristic UI</title>
   <style>
-    /* General Styles */
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
     body {
-      background-color: #000000; /* Black background */
-      color: #FFD700; /* Yellow text */
-      font-family: 'Arial', sans-serif;
+      background-color: #0a0a0a;
+      color: #00FFF6;
+      font-family: 'Orbitron', sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     h1 {
       text-align: center;
-      font-size: 48px;
+      font-size: 50px;
       margin: 20px 0;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px #00FFF6;
     }
 
     h2 {
-      font-size: 36px;
-      margin: 0;
       text-align: center;
+      font-size: 28px;
+      margin: 10px;
+      color: #FFD700;
     }
 
-    p {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    /* Vertical Layout for Roadmap */
+    /* Roadmap Container */
     .roadmap {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
+    /* Phase Card */
     .phase {
-      background-color: #1a1a1a; /* Dark gray */
-      border: 2px solid #FFD700; /* Yellow border */
-      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #FFD700;
+      border-radius: 15px;
       padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 246, 0.8);
+      transform: perspective(500px) rotateX(5deg);
+      transition: 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .phase:hover {
+      transform: scale(1.03) rotateX(0deg);
+      box-shadow: 0 0 30px rgba(0, 255, 246, 1);
     }
 
     .phase h3 {
-      font-size: 24px;
-      margin: 0 0 10px 0;
-      color: #FFD700;
+      font-size: 22px;
       text-align: center;
+      color: #FFD700;
+      text-shadow: 0 0 10px #FFD700;
     }
 
     .phase ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
     }
 
     .phase ul li {
-      background-color: #333333; /* Darker gray */
+      background: linear-gradient(90deg, #111, #222);
       margin: 10px 0;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 12px;
+      border-radius: 8px;
       font-size: 16px;
+      transition: 0.3s ease-in-out;
+      position: relative;
+      color: #FFF;
     }
 
     .phase ul li:hover {
-      background-color: #444444; /* Lighter gray on hover */
+      background: rgba(0, 255, 246, 0.2);
+      color: #00FFF6;
       cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 255, 246, 0.7);
     }
 
-    .phase ul li strong {
-      color: #FFD700;
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Reveal Phases on Scroll */
+    .visible {
+      animation: fadeInUp 0.8s ease-in-out forwards;
     }
 
     /* Footer */
     footer {
-      background-color: #1a1a1a;
+      background-color: #111;
       padding: 20px;
       text-align: center;
       border-top: 2px solid #FFD700;
       margin-top: 40px;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 16px;
+      color: #FFD700;
+      text-shadow: 0 0 10px #FFD700;
     }
 
     /* Responsive Design */
@@ -98,7 +125,7 @@
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 24px;
       }
 
       .phase h3 {
@@ -114,7 +141,7 @@
 <body>
   <!-- Header -->
   <header>
-    <h1>DevOps Roadmap</h1>
+    <h1>🚀 DevOps Roadmap</h1>
     <h2>From Beginner to Expert</h2>
   </header>
 
@@ -128,7 +155,6 @@
         <li><strong>Linux Basics:</strong> File systems, permissions, processes, package management.</li>
         <li><strong>Shell Scripting:</strong> Bash scripting for automation.</li>
         <li><strong>Version Control:</strong> Git (branching, merging, rebasing).</li>
-        <li><strong>Programming:</strong> Python basics (loops, conditionals, functions).</li>
       </ul>
     </div>
 
@@ -136,11 +162,9 @@
     <div class="phase">
       <h3>Phase 2: Cloud Computing</h3>
       <ul>
-        <li><strong>Cloud Basics:</strong> IaaS, PaaS, SaaS.</li>
-        <li><strong>Azure:</strong> Compute, Storage, Networking, Security.</li>
-        <li><strong>AWS:</strong> EC2, S3, RDS, IAM.</li>
-        <li><strong>GCP:</strong> Compute Engine, Cloud Storage, BigQuery.</li>
-        <li><strong>Cloud CLI:</strong> Azure CLI, AWS CLI, GCP CLI.</li>
+        <li><strong>Azure:</strong> Compute, Storage, Security.</li>
+        <li><strong>AWS:</strong> EC2, S3, IAM.</li>
+        <li><strong>GCP:</strong> Compute Engine, Cloud Storage.</li>
       </ul>
     </div>
 
@@ -148,10 +172,8 @@
     <div class="phase">
       <h3>Phase 3: Infrastructure as Code (IaC)</h3>
       <ul>
-        <li><strong>Terraform:</strong> Basics, modules, state management, providers.</li>
-        <li><strong>Ansible:</strong> Playbooks, roles, inventory management, modules.</li>
-        <li><strong>Use Cases:</strong> Provisioning cloud resources, configuration management.</li>
-        <li><strong>Best Practices:</strong> Versioning, modularity, reusability.</li>
+        <li><strong>Terraform:</strong> Modules, providers, automation.</li>
+        <li><strong>Ansible:</strong> Playbooks, roles, configurations.</li>
       </ul>
     </div>
 
@@ -159,11 +181,8 @@
     <div class="phase">
       <h3>Phase 4: Containerization & Orchestration</h3>
       <ul>
-        <li><strong>Docker:</strong> Images, containers, Dockerfile, Docker Compose.</li>
-        <li><strong>Kubernetes:</strong> Pods, Deployments, Services, ConfigMaps, Secrets.</li>
-        <li><strong>Helm:</strong> Package management for Kubernetes.</li>
-        <li><strong>Service Mesh:</strong> Istio, Linkerd.</li>
-        <li><strong>Monitoring:</strong> Prometheus, Grafana.</li>
+        <li><strong>Docker:</strong> Images, containers, Dockerfile.</li>
+        <li><strong>Kubernetes:</strong> Pods, Deployments, Services.</li>
       </ul>
     </div>
 
@@ -171,30 +190,29 @@
     <div class="phase">
       <h3>Phase 5: CI/CD & DevSecOps</h3>
       <ul>
-        <li><strong>CI/CD Tools:</strong> Jenkins, GitLab CI/CD, GitHub Actions.</li>
-        <li><strong>Security Tools:</strong> SonarQube, Trivy, OWASP ZAP.</li>
-        <li><strong>Secrets Management:</strong> HashiCorp Vault, AWS Secrets Manager.</li>
-        <li><strong>Compliance:</strong> GDPR, HIPAA, PCI-DSS.</li>
-        <li><strong>Chaos Engineering:</strong> Chaos Monkey, Gremlin.</li>
-      </ul>
-    </div>
-
-    <!-- Phase 6 -->
-    <div class="phase">
-      <h3>Phase 6: Advanced DevOps & Specialization</h3>
-      <ul>
-        <li><strong>Multi-Cloud:</strong> Azure, AWS, GCP integration.</li>
-        <li><strong>Serverless:</strong> AWS Lambda, Azure Functions.</li>
-        <li><strong>Performance Testing:</strong> JMeter, Gatling.</li>
-        <li><strong>Certifications:</strong> CKA, Terraform Associate, AWS DevOps Pro.</li>
-        <li><strong>Leadership:</strong> DevOps culture, team collaboration.</li>
+        <li><strong>CI/CD Tools:</strong> Jenkins, GitHub Actions.</li>
+        <li><strong>Security Tools:</strong> SonarQube, OWASP ZAP.</li>
       </ul>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>© 2023 DevOps Roadmap. All rights reserved.</p>
+    <p>🚀 Level Up in DevOps | Cyberpunk Edition | 2025</p>
   </footer>
+
+  <script>
+    // Reveal phases on scroll
+    const phases = document.querySelectorAll('.phase');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    phases.forEach(phase => observer.observe(phase));
+  </script>
 </body>
 </html>
