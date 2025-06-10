@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes Implementation Blueprint</title>
+    <style>
+        :root {
+            --primary: #326ce5;
+            --secondary: #f8f9fa;
+            --accent: #ff6b6b;
+            --text: #2d3748;
+            --light-text: #718096;
+            --border: #e2e8f0;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .journey-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+        
+        .level-nav {
+            position: sticky;
+            top: 2rem;
+            align-self: start;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        
+        .level-nav h3 {
+            margin-top: 0;
+            color: var(--primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-item {
+            padding: 0.75rem 1rem;
+            margin: 0.25rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .nav-item.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .level-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .level-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .level-badge {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .level-title {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--text);
+        }
+        
+        .level-duration {
+            margin-left: auto;
+            background-color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .card {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .micro-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--primary);
+        }
+        
+        .micro-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .micro-card p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .priority-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .critical {
+            background-color: #fee2e2;
+            color: var(--danger);
+        }
+        
+        .important {
+            background-color: #ffedd5;
+            color: var(--warning);
+        }
+        
+        .medium {
+            background-color: #fef9c3;
+            color: #ca8a04;
+        }
+        
+        .low {
+            background-color: #dcfce7;
+            color: var(--success);
+        }
+        
+        .checklist {
+            margin: 1rem 0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .checklist-item:before {
+            content: "✓";
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--success);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.5rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .resource-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .resource-table th, .resource-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .resource-table th {
+            background-color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .resource-table tr:hover {
+            background-color: var(--secondary);
+        }
+        
+        .architecture-diagram {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px dashed var(--border);
+            text-align: center;
+        }
+        
+        .architecture-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .diagram-placeholder {
+            background-color: #e2e8f0;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            border-radius: 4px;
+        }
+        
+        .next-steps {
+            background-color: #ebf5ff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .next-steps h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .journey-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .level-nav {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kubernetes Implementation Journey</h1>
+            <p class="subtitle">A comprehensive, phased approach to designing and implementing Kubernetes from scratch to production, following DevOps best practices and avoiding common pitfalls.</p>
+        </header>
+        
+        <div class="journey-container">
+            <div class="level-nav">
+                <h3>Implementation Levels</h3>
+                <div class="nav-item active" onclick="showLevel('level-zero')">Level Zero: Requirement Gathering</div>
+                <div class="nav-item" onclick="showLevel('level-one')">Level One: Proof of Concept</div>
+                <div class="nav-item" onclick="showLevel('level-two')">Level Two: Dev Cluster</div>
+                <div class="nav-item" onclick="showLevel('level-three')">Level Three: Staging/QA</div>
+                <div class="nav-item" onclick="showLevel('level-four')">Level Four: Production</div>
+                <div class="nav-item" onclick="showLevel('level-five')">Level Five: Scaling Production</div>
+            </div>
+            
+            <div class="levels-content">
+                <!-- Level Zero -->
+                <div id="level-zero" class="level-content">
+                    <div class="level-header">
+                        <div class="level-badge">Level Zero</div>
+                        <h2 class="level-title">Requirement Gathering</h2>
+                        <div class="level-duration">1-2 weeks</div>
+                    </div>
+                    
+                    <p>The foundational phase that many teams skip, but is absolutely critical for successful Kubernetes implementation. This stage involves understanding your current ecosystem and planning the migration strategy.</p>
+                    
+                    <div class="card">
+                        <h3>Key Activities</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">Inventory all microservices in your application</div>
+                            <div class="checklist-item">Identify teams responsible for each service</div>
+                            <div class="checklist-item">Categorize services by business criticality</div>
+                            <div class="checklist-item">Measure current resource utilization</div>
+                            <div class="checklist-item">Calculate cost comparisons (VMs vs Kubernetes)</div>
+                            <div class="checklist-item">Document everything in a migration plan</div>
+                            <div class="checklist-item">Present and discuss with stakeholders</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Microservice Inventory</h3>
+                    <div class="card-grid">
+                        <div class="micro-card">
+                            <h4>User Interface</h4>
+                            <p>React-based frontend</p>
+                            <div class="priority-tag medium">Medium Priority</div>
+                        </div>
+                        <div class="micro-card">
+                            <h4>Payment Service</h4>
+                            <p>Handles transactions</p>
+                            <div class="priority-tag critical">Critical</div>
+                        </div>
+                        <div class="micro-card">
+                            <h4>Order Service</h4>
+                            <p>Processes orders</p>
+                            <div class="priority-tag important">Important</div>
+                        </div>
+                        <div class="micro-card">
+                            <h4>Shipment Service</h4>
+                            <p>Manages deliveries</p>
+                            <div class="priority-tag medium">Medium Priority</div>
+                        </div>
+                        <div class="micro-card">
+                            <h4>Notification Service</h4>
+                            <p>Sends alerts</p>
+                            <div class="priority-tag low">Low Priority</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Resource Utilization</h3>
+                    <table class="resource-table">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>CPU (cores)</th>
+                                <th>Memory (GB)</th>
+                                <th>Disk (GB)</th>
+                                <th>Current Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Payment Service</td>
+                                <td>4.2</td>
+                                <td>8</td>
+                                <td>50</td>
+                                <td>$120/mo</td>
+                            </tr>
+                            <tr>
+                                <td>Order Service</td>
+                                <td>2.8</td>
+                                <td>4</td>
+                                <td>30</td>
+                                <td>$85/mo</td>
+                            </tr>
+                            <tr>
+                                <td>UI Service</td>
+                                <td>1.5</td>
+                                <td>2</td>
+                                <td>10</td>
+                                <td>$45/mo</td>
+                            </tr>
+                            <tr>
+                                <td>Shipment Service</td>
+                                <td>3.1</td>
+                                <td>6</td>
+                                <td>40</td>
+                                <td>$95/mo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="next-steps">
+                        <h3>Ready for Next Level</h3>
+                        <p>Once you've completed requirement gathering and have stakeholder approval, you're ready to proceed to <strong>Level One: Proof of Concept</strong> where you'll validate your approach with a small subset of services.</p>
+                    </div>
+                </div>
+                
+                <!-- Level One -->
+                <div id="level-one" class="level-content" style="display:none">
+                    <div class="level-header">
+                        <div class="level-badge">Level One</div>
+                        <h2 class="level-title">Proof of Concept (PoC)</h2>
+                        <div class="level-duration">2-4 weeks</div>
+                    </div>
+                    
+                    <p>Before committing to full Kubernetes implementation, validate your approach with a controlled PoC environment. This helps identify potential issues with a small subset of services.</p>
+                    
+                    <div class="card">
+                        <h3>PoC Setup</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">Select 15-20 representative microservices</div>
+                            <div class="checklist-item">Include mix of criticality levels</div>
+                            <div class="checklist-item">Include both stateful and stateless services</div>
+                            <div class="checklist-item">Create small Kubernetes cluster (3 control plane, 3 worker nodes)</div>
+                            <div class="checklist-item">Prepare Kubernetes manifests (Deployments, Services, Ingress)</div>
+                            <div class="checklist-item">Choose ingress controller (e.g., ALB on AWS)</div>
+                            <div class="checklist-item">Involve QA team for testing</div>
+                        </div>
+                    </div>
+                    
+                    <h3>PoC Cluster Configuration</h3>
+                    <div class="architecture-diagram">
+                        <div class="diagram-placeholder">PoC Cluster Architecture Diagram</div>
+                    </div>
+                    
+                    <table class="resource-table">
+                        <thead>
+                            <tr>
+                                <th>Node Type</th>
+                                <th>Count</th>
+                                <th>CPU</th>
+                                <th>Memory</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Control Plane</td>
+                                <td>3</td>
+                                <td>2 cores</td>
+                                <td>4GB</td>
+                                <td>Cluster management</td>
+                            </tr>
+                            <tr>
+                                <td>Worker Nodes</td>
+                                <td>3</td>
+                                <td>8 cores</td>
+                                <td>8GB</td>
+                                <td>Running PoC workloads</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>Common PoC Challenges</h3>
+                    <div class="card">
+                        <h4>CrashLoopBackOff Issues</h4>
+                        <p>Implement proper liveness and readiness probes to ensure services are functioning correctly before traffic is routed to them.</p>
+                        
+                        <h4>Resource Constraints</h4>
+                        <p>Set appropriate resource requests and limits based on your Level Zero measurements to prevent pods from being evicted or starving other services.</p>
+                        
+                        <h4>Stateful Services</h4>
+                        <p>For databases and other stateful services, ensure proper PersistentVolume provisioning and test failover scenarios.</p>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3>Ready for Next Level</h3>
+                        <p>After successfully validating your approach in the PoC environment and addressing any issues, you're ready to proceed to <strong>Level Two: Dev Kubernetes Cluster</strong> where you'll implement your first full environment.</p>
+                    </div>
+                </div>
+                
+                <!-- Additional levels would follow the same pattern -->
+                <!-- Level Two -->
+                <div id="level-two" class="level-content" style="display:none">
+                    <div class="level-header">
+                        <div class="level-badge">Level Two</div>
+                        <h2 class="level-title">Dev Kubernetes Cluster</h2>
+                        <div class="level-duration">3-4 weeks</div>
+                    </div>
+                    
+                    <p>The first full implementation of your Kubernetes environment, sized appropriately for development needs with proper namespace isolation and RBAC.</p>
+                    
+                    <div class="card">
+                        <h3>Key Configuration</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">Size cluster based on Level Zero requirements</div>
+                            <div class="checklist-item">Create namespaces per team (logical isolation)</div>
+                            <div class="checklist-item">Implement RBAC (integrate with IAM via OIDC)</div>
+                            <div class="checklist-item">Define Resource Quotas per namespace</div>
+                            <div class="checklist-item">Set Limit Ranges for pods</div>
+                            <div class="checklist-item">Configure Requests and Limits for all workloads</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Dev Cluster Sizing Example</h3>
+                    <p>Based on Level Zero measurements totaling 40 CPU cores and 60GB RAM needed:</p>
+                    <table class="resource-table">
+                        <thead>
+                            <tr>
+                                <th>Node Type</th>
+                                <th>Count</th>
+                                <th>CPU per Node</th>
+                                <th>Memory per Node</th>
+                                <th>Total CPU</th>
+                                <th>Total Memory</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Worker Nodes</td>
+                                <td>3</td>
+                                <td>16 cores</td>
+                                <td>24GB</td>
+                                <td>48 cores</td>
+                                <td>72GB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>Namespace Strategy</h3>
+                    <div class="card-grid">
+                        <div class="micro-card">
+                            <h4>payments</h4>
+                            <p>Payment team services</p>
+                            <p>Resource Quota: 8 CPU, 16GB RAM</p>
+                        </div>
+                        <div class="micro-card">
+                            <h4>transactions</h4>
+                            <p>Order processing team</p>
+                            <p>Resource Quota: 6 CPU, 12GB RAM</p>
+                        </div>
+                        <div class="micro-card">
+                            <h4>ui</h4>
+                            <p>Frontend team</p>
+                            <p>Resource Quota: 4 CPU, 8GB RAM</p>
+                        </div>
+                        <div class="micro-card">
+                            <h4>monitoring</h4>
+                            <p>Observability tools</p>
+                            <p>Resource Quota: 4 CPU, 8GB RAM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3>Ready for Next Level</h3>
+                        <p>With your Dev cluster stable and teams successfully working in their namespaces, proceed to <strong>Level Three: Staging/QA Environment</strong> to establish a production-like environment for testing.</p>
+                    </div>
+                </div>
+                
+                <!-- Level Three -->
+                <div id="level-three" class="level-content" style="display:none">
+                    <div class="level-header">
+                        <div class="level-badge">Level Three</div>
+                        <h2 class="level-title">Staging/QA Environment</h2>
+                        <div class="level-duration">2-3 weeks</div>
+                    </div>
+                    
+                    <p>A production-like environment for thorough testing and issue reproduction, with two possible implementation approaches.</p>
+                    
+                    <div class="card">
+                        <h3>Implementation Options</h3>
+                        <h4>Option 1: Shared Cluster</h4>
+                        <p>Use the same Dev cluster with additional resources, separating environments via namespaces (e.g., dev-payments, stage-payments).</p>
+                        <p><strong>Pros:</strong> Simpler, less overhead<br>
+                        <strong>Cons:</strong> Requires strict RBAC, potential instability</p>
+                        
+                        <h4>Option 2: Separate Cluster</h4>
+                        <p>Create a dedicated staging cluster with similar configuration to what production will use.</p>
+                        <p><strong>Pros:</strong> Complete isolation, more stable<br>
+                        <strong>Cons:</strong> More resource intensive</p>
+                    </div>
+                    
+                    <h3>Recommended: Separate Staging Cluster</h3>
+                    <div class="architecture-diagram">
+                        <div class="diagram-placeholder">Staging Cluster Architecture</div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Staging Best Practices</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">Size closer to production requirements</div>
+                            <div class="checklist-item">Implement same RBAC policies you'll use in production</div>
+                            <div class="checklist-item">Mirror production monitoring and alerting</div>
+                            <div class="checklist-item">Test deployment procedures</div>
+                            <div class="checklist-item">Validate backup/restore processes</div>
+                            <div class="checklist-item">Perform load testing</div>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3>Ready for Next Level</h3>
+                        <p>With a stable staging environment that successfully mirrors your production needs, you're ready to proceed to <strong>Level Four: Production Kubernetes Environment</strong> with confidence.</p>
+                    </div>
+                </div>
+                
+                <!-- Level Four -->
+                <div id="level-four" class="level-content" style="display:none">
+                    <div class="level-header">
+                        <div class="level-badge">Level Four</div>
+                        <h2 class="level-title">Production Environment</h2>
+                        <div class="level-duration">4-6 weeks</div>
+                    </div>
+                    
+                    <p>The critical production deployment with high availability requirements and production-grade configurations.</p>
+                    
+                    <div class="card">
+                        <h3>Key Production Requirements</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">Multi-AZ deployment (mandatory)</div>
+                            <div class="checklist-item">Pod distribution across AZs using topology spread constraints</div>
+                            <div class="checklist-item">Production-grade observability (Prometheus, Grafana)</div>
+                            <div class="checklist-item">Proper liveness and readiness probes</div>
+                            <div class="checklist-item">Resource management with potential autoscaling</div>
+                            <div class="checklist-item">Disaster recovery planning</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Multi-AZ Configuration</h3>
+                    <div class="architecture-diagram">
+                        <div class="diagram-placeholder">Multi-AZ Production Cluster</div>
+                    </div>
+                    
+                    <table class="resource-table">
+                        <thead>
+                            <tr>
+                                <th>Node Pool</th>
+                                <th>AZ</th>
+                                <th>Node Count</th>
+                                <th>Instance Type</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>worker-pool-1</td>
+                                <td>us-east-1a</td>
+                                <td>3</td>
+                                <td>m5.xlarge</td>
+                                <td>General workloads</td>
+                            </tr>
+                            <tr>
+                                <td>worker-pool-2</td>
+                                <td>us-east-1b</td>
+                                <td>3</td>
+                                <td>m5.xlarge</td>
+                                <td>General workloads</td>
+                            </tr>
+                            <tr>
+                                <td>worker-pool-3</td>
+                                <td>us-east-1c</td>
+                                <td>3</td>
+                                <td>m5.xlarge</td>
+                                <td>General workloads</td>
+                            </tr>
+                            <tr>
+                                <td>db-pool-1</td>
+                                <td>us-east-1a</td>
+                                <td>2</td>
+                                <td>r5.large</td>
+                                <td>Stateful services</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="card">
+                        <h3>Topology Spread Constraints Example</h3>
+                        <pre><code>
+topologySpreadConstraints:
+- maxSkew: 1
+  topologyKey: topology.kubernetes.io/zone
+  whenUnsatisfiable: DoNotSchedule
+  labelSelector:
+    matchLabels:
+      app: payment-service
+                        </code></pre>
+                        <p>This ensures your payment-service pods are evenly distributed across availability zones.</p>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3>Ready for Next Level</h3>
+                        <p>With your production environment stable and handling traffic successfully, consider <strong>Level Five: Scaling Production</strong> for global high availability and multi-region deployment.</p>
+                    </div>
+                </div>
+                
+                <!-- Level Five -->
+                <div id="level-five" class="level-content" style="display:none">
+                    <div class="level-header">
+                        <div class="level-badge">Level Five</div>
+                        <h2 class="level-title">Scaling Production</h2>
+                        <div class="level-duration">Ongoing</div>
+                    </div>
+                    
+                    <p>Advanced configurations for global scale, high availability, and multi-region deployments.</p>
+                    
+                    <div class="card">
+                        <h3>Global Deployment Strategy</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">Multiple distinct Kubernetes clusters per region</div>
+                            <div class="checklist-item">Global Load Balancer fronting regional clusters</div>
+                            <div class="checklist-item">DNS-based routing (e.g., Route53 geolocation)</div>
+                            <div class="checklist-item">Data replication between regions</div>
+                            <div class="checklist-item">Regional failover testing</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Multi-Region Architecture</h3>
+                    <div class="architecture-diagram">
+                        <div class="diagram-placeholder">Global Kubernetes Deployment</div>
+                    </div>
+                    
+                    <table class="resource-table">
+                        <thead>
+                            <tr>
+                                <th>Region</th>
+                                <th>Cluster Name</th>
+                                <th>Node Count</th>
+                                <th>Primary AZs</th>
+                                <th>Traffic Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>us-east-1</td>
+                                <td>prod-useast</td>
+                                <td>12</td>
+                                <td>1a, 1b, 1c</td>
+                                <td>60% (Americas)</td>
+                            </tr>
+                            <tr>
+                                <td>eu-west-1</td>
+                                <td>prod-euwest</td>
+                                <td>9</td>
+                                <td>1a, 1b</td>
+                                <td>30% (EMEA)</td>
+                            </tr>
+                            <tr>
+                                <td>ap-southeast-1</td>
+                                <td>prod-apsoutheast</td>
+                                <td>6</td>
+                                <td>1a, 1b</td>
+                                <td>10% (APAC)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="card">
+                        <h3>Beyond Level Five</h3>
+                        <p>Kubernetes implementation is an ongoing journey. Additional considerations include:</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Service mesh implementation (Istio, Linkerd)</div>
+                            <div class="checklist-item">Policy enforcement (Kyverno, OPA Gatekeeper)</div>
+                            <div class="checklist-item">GitOps workflows (ArgoCD, Flux)</div>
+                            <div class="checklist-item">Cost optimization strategies</div>
+                            <div class="checklist-item">Security hardening</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showLevel(levelId) {
+            // Hide all level contents
+            const levels = document.querySelectorAll('.level-content');
+            levels.forEach(level => {
+                level.style.display = 'none';
+            });
+            
+            // Show selected level
+            document.getElementById(levelId).style.display = 'block';
+            
+            // Update active nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find the clicked nav item and make it active
+            navItems.forEach(item => {
+                if (item.getAttribute('onclick').includes(levelId)) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Scroll to top of level content
+            document.getElementById(levelId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
