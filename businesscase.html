@@ -286,6 +286,46 @@
             color: var(--primary);
         }
         
+        .intro-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .intro-highlight {
+            background-color: #ebf5ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .intro-highlight h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .intro-card {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-top: 3px solid var(--primary);
+        }
+        
+        .intro-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
         @media (max-width: 768px) {
             .journey-container {
                 grid-template-columns: 1fr;
@@ -294,6 +334,10 @@
             .level-nav {
                 position: static;
                 margin-bottom: 2rem;
+            }
+            
+            .intro-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -308,7 +352,8 @@
         <div class="journey-container">
             <div class="level-nav">
                 <h3>Implementation Levels</h3>
-                <div class="nav-item active" onclick="showLevel('level-zero')">Level Zero: Requirement Gathering</div>
+                <div class="nav-item active" onclick="showLevel('intro')">Introduction</div>
+                <div class="nav-item" onclick="showLevel('level-zero')">Level Zero: Requirement Gathering</div>
                 <div class="nav-item" onclick="showLevel('level-one')">Level One: Proof of Concept</div>
                 <div class="nav-item" onclick="showLevel('level-two')">Level Two: Dev Cluster</div>
                 <div class="nav-item" onclick="showLevel('level-three')">Level Three: Staging/QA</div>
@@ -317,8 +362,68 @@
             </div>
             
             <div class="levels-content">
+                <!-- Introduction Page -->
+                <div id="intro" class="level-content">
+                    <div class="level-header">
+                        <div class="level-badge">Guide</div>
+                        <h2 class="level-title">Kubernetes Migration Blueprint</h2>
+                    </div>
+                    
+                    <div class="intro-content">
+                        <p>Designing and implementing a Kubernetes solution for an enterprise, particularly when migrating existing microservices running on virtual machines with Docker Compose, is a complex undertaking that demands a structured, multi-phased approach. This transition is not a single-day activity but rather a process that unfolds over multiple levels, potentially taking weeks or even months.</p>
+                        
+                        <div class="intro-highlight">
+                            <h3>What You'll Learn in This Journey</h3>
+                            <p>In this business case, you’ll discover how I orchestrated the full migration of 100+ microservices from a legacy Docker Compose environment to Amazon EKS. You’ll get a step-by-step look at our planning and discovery phase, Kubernetes architecture design, CI/CD pipeline implementation with GitOps, security hardening, and phased rollout strategy across dozens of AWS accounts. Whether you’re a DevOps engineer or a cloud architect, this case study delivers practical, real-world insights for managing and scaling containerized workloads in production-grade Kubernetes clusters.
+:</p>
+                            <div class="checklist">
+                                <div class="checklist-item">Properly assess your current environment and requirements</div>
+                                <div class="checklist-item">Avoid common pitfalls that derail Kubernetes projects</div>
+                                <div class="checklist-item">Structure your clusters for different environments</div>
+                                <div class="checklist-item">Implement production-grade configurations</div>
+                                <div class="checklist-item">Scale your implementation globally</div>
+                            </div>
+                        </div>
+                        
+                        <h3>Why This Approach Works</h3>
+                        <p>Most Kubernetes implementations fail because teams jump straight into creating clusters without proper planning. This blueprint follows a methodical approach that:</p>
+                        
+                        <div class="intro-grid">
+                            <div class="intro-card">
+                                <h3>1. Starts with Assessment</h3>
+                                <p>We begin with comprehensive requirement gathering (Level Zero) to understand your current architecture, resource needs, and business requirements before writing a single YAML file.</p>
+                            </div>
+                            <div class="intro-card">
+                                <h3>2. Validates with PoC</h3>
+                                <p>Before committing to full implementation, we validate our approach with a controlled Proof of Concept using representative services (Level One).</p>
+                            </div>
+                            <div class="intro-card">
+                                <h3>3. Gradual Rollout</h3>
+                                <p>We implement Kubernetes progressively through development, staging, and finally production environments, refining our approach at each stage.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Key Success Factors</h3>
+                            <p>From my experience leading these migrations, here are the critical factors that determine success:</p>
+                            <div class="checklist">
+                                <div class="checklist-item"><strong>Team Structure Awareness:</strong> Knowing which teams own which services is crucial for namespace design and RBAC</div>
+                                <div class="checklist-item"><strong>Resource Measurement:</strong> Accurate CPU/memory metrics prevent cluster overallocation or starvation</div>
+                                <div class="checklist-item"><strong>Criticality Classification:</strong> Categorizing services by importance guides migration sequencing</div>
+                                <div class="checklist-item"><strong>Cost Analysis:</strong> Comparing VM costs with Kubernetes projections ensures financial viability</div>
+                            </div>
+                        </div>
+                        
+                        <div class="next-steps">
+                            <h3>Ready to Begin?</h3>
+                            <p>This structured approach has helped me successfully migrate dozens of microservices to Kubernetes with minimal disruption. Let's start with <strong>Level Zero: Requirement Gathering</strong> to lay the proper foundation for your implementation.</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Level Zero -->
-                <div id="level-zero" class="level-content">
+                <div id="level-zero" class="level-content" style="display:none">
+                    <!-- Existing Level Zero content -->
                     <div class="level-header">
                         <div class="level-badge">Level Zero</div>
                         <h2 class="level-title">Requirement Gathering</h2>
