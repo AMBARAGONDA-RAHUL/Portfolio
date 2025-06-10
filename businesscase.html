@@ -536,7 +536,82 @@ The following sections walk through this Level Zero process in depth, showing ho
                         <div class="level-duration">2-4 weeks</div>
                     </div>
                     
-                    <p>Before committing to full Kubernetes implementation, validate your approach with a controlled PoC environment. This helps identify potential issues with a small subset of services.</p>
+                    <p>🔹 Level One: Proof of Concept (PoC)
+Following the in-depth requirement gathering in Level Zero, the next step is to validate your migration approach with a Proof of Concept (PoC). This stage is essential before scaling up to Dev, Staging, or Production environments.
+
+🎯 Purpose
+The main objective of the PoC is to test whether selected microservices can successfully run on Kubernetes. This phase helps uncover technical gaps, incompatibilities, and necessary adjustments before larger-scale migrations.
+
+✅ Service Selection
+Rather than migrating all services, choose a representative subset (15–20 microservices). These should span across:
+
+Business criticality levels: critical, important, medium, and less critical.
+
+Service types: stateless (e.g., backend APIs) and stateful (e.g., databases, caching, message queues).
+
+This ensures the PoC validates diverse workloads and identifies edge cases early.
+
+🏗️ PoC Environment Setup
+Create a small, cost-effective Kubernetes cluster, such as:
+
+3 Control Plane nodes
+
+3 Data Plane (worker) nodes
+
+Each node: ~8 vCPUs, 8 GB RAM
+
+This cluster is not meant for production loads but must mimic a realistic runtime environment.
+
+⚙️ Implementation Steps
+For the selected microservices:
+
+Create Kubernetes manifests:
+
+Deployment, StatefulSet, or DaemonSet depending on the workload
+
+Service resources to expose them internally or externally
+
+Ingress resources for HTTP/S routing
+
+Set up an Ingress Controller:
+
+Use native cloud solutions (e.g., AWS ALB Ingress Controller)
+
+🧪 Testing & Validation
+Validate all deployed microservices for connectivity, functionality, and performance.
+
+Involve the QA team to simulate basic application usage and test service response.
+
+Ensure services are accessible via Ingress endpoints.
+
+🛠️ Issue Detection & Resolution
+Common issues during PoC:
+
+CrashLoopBackOff pods: identify root causes (missing config, init failures, etc.)
+
+Probes configuration:
+
+Set up and test liveness and readiness probes for each service
+
+These determine pod health and traffic readiness within the cluster
+
+Resolving these ensures production-readiness of the workload structure.
+
+⏳ Duration
+Typical PoC timeframe: 2 to 4 weeks
+
+Smaller teams: ~2 weeks
+
+Larger, more complex applications: up to 30 days
+
+📈 Outcome
+By the end of Level One, you will have:
+
+A validated subset of services running on Kubernetes
+
+Working deployment manifests, tested probes, and Ingress configuration
+
+Resolved initial deployment and runtime issues.</p>
                     
                     <div class="card">
                         <h3>PoC Setup</h3>
